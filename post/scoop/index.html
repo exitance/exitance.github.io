@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Windows 下统一开发环境 Scoop 的安装与使用 - Lambert&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Lambert" /><meta name="description" content="包 package 或称“软件包”，可以理解为广义上的软件，通常指的是一个应用程序，它可以是常见的基于图形用户界面（ GUI ）的软件、基于命令行界面（ CLI ）的开发工" /><meta name="keywords" content="Graphics, DeepLearning, Math" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/scoop/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b874a8796a492f0d7c86bb24c33cbf052935783a5778ebaf819a8e514bf49f10.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Windows 下统一开发环境 Scoop 的安装与使用" />
+<meta property="og:description" content="包 package 或称“软件包”，可以理解为广义上的软件，通常指的是一个应用程序，它可以是常见的基于图形用户界面（ GUI ）的软件、基于命令行界面（ CLI ）的开发工" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/scoop/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-16T13:30:31+08:00" />
+<meta property="article:modified_time" content="2022-01-16T13:30:31+08:00" />
+
+<meta itemprop="name" content="Windows 下统一开发环境 Scoop 的安装与使用">
+<meta itemprop="description" content="包 package 或称“软件包”，可以理解为广义上的软件，通常指的是一个应用程序，它可以是常见的基于图形用户界面（ GUI ）的软件、基于命令行界面（ CLI ）的开发工"><meta itemprop="datePublished" content="2022-01-16T13:30:31+08:00" />
+<meta itemprop="dateModified" content="2022-01-16T13:30:31+08:00" />
+<meta itemprop="wordCount" content="3177">
+<meta itemprop="keywords" content="Scoop,Windows,包管理器," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Windows 下统一开发环境 Scoop 的安装与使用"/>
+<meta name="twitter:description" content="包 package 或称“软件包”，可以理解为广义上的软件，通常指的是一个应用程序，它可以是常见的基于图形用户界面（ GUI ）的软件、基于命令行界面（ CLI ）的开发工"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Lambert</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Lambert</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Windows 下统一开发环境 Scoop 的安装与使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-16 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"> 开发工具 </a>
+            </div>
+          <span class="more-meta"> 3177 words </span>
+          <span class="more-meta"> 7 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#why-scoop-">WHY Scoop ?</a></li>
+        <li><a href="#scoop-安装与卸载">Scoop 安装与卸载</a>
+          <ul>
+            <li><a href="#scoop-安装">Scoop 安装</a></li>
+            <li><a href="#scoop-卸载">Scoop 卸载</a></li>
+          </ul>
+        </li>
+        <li><a href="#scoop-包管理">Scoop 包管理</a>
+          <ul>
+            <li><a href="#软件仓库-bucket-安装-gui-程序等">软件仓库 bucket （安装 GUI 程序等）</a></li>
+            <li><a href="#安装-app">安装 App</a></li>
+          </ul>
+        </li>
+        <li><a href="#实用仓库与工具推荐">实用仓库与工具推荐</a>
+          <ul>
+            <li><a href="#scoop-completion命令补全">scoop-completion：命令补全</a></li>
+            <li><a href="#aria2加速下载">Aria2：加速下载</a></li>
+            <li><a href="#gowlinux-命令行">gow：Linux 命令行</a></li>
+            <li><a href="#sudo调用管理员权限">sudo：调用管理员权限</a></li>
+            <li><a href="#cmderwindows-终端模拟器">cmder：Windows 终端模拟器</a></li>
+            <li><a href="#versions安装特定版本与版本切换">versions：安装特定版本与版本切换</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>包 package</p>
+</blockquote>
+<p>或称“软件包”，可以理解为广义上的软件，通常指的是一个应用程序，它可以是常见的基于图形用户界面（ GUI ）的软件、基于命令行界面（ CLI ）的开发工具或（其他软件程序需要的）软件库。</p>
+<p>包本质上是一个存档文件，包含二进制可执行文件、配置文件，有时还包含依赖关系的信息。</p>
+<blockquote>
+<p>包管理器 package manager</p>
+</blockquote>
+<p>开发人员常用的生产力工具，如 Ubuntu 上的 Apt-Get 和 MacOS 上的 Homebrew。</p>
+<p>简单说，包管理器就是一个 <em>软件自动化管理工具</em> ，允许用户在操作系统上安装、删除、升级、配置和管理软件包。软件包管理器可以是像“软件中心”这样的图形化应用，也可以是像 apt-get 或 pacman 这样的命令行工具。。</p>
+<p>Windows 下常用的包管理工具有：</p>
+<ul>
+<li>Scoop</li>
+<li>Chocolatey</li>
+</ul>
+<h2 id="why-scoop-">WHY Scoop ?</h2>
+<p>Scoop 由澳洲程序员 Luke Sampson 于 2015 年创建，其特色之一就是其安装管理不依赖“管理员权限”，这对使用有权限限制的公共计算机的使用者是一大利好。</p>
+<p>Chocolatey 整个社区发布的安装脚本有3000多个，而 Scoop 官方仓库发布的安装脚本有2000多个。脚本数量上不如 Chocolatey，但是 Scoop <em>自定义程度高</em>，<em>扩展性强</em>，可以非常方便的自己定制安装脚本。最关键的是，Scoop 的<em>维护</em>完胜前者，前者貌似脚本很多，但其中不少已经没人维护或者不再更新了。</p>
+<p>Mike Zick 在 <a href="https://sourceforge.net/p/mingw/mailman/mingw-msys/thread/200506130821.11185.mszick@morethan.org/">对 Cygwin 和 MSYS 的描述</a> 中提到他认为 Scoop 并不是一个包管理器，而是通过读取 JSON 描述文件来安装程序及其依赖。</p>
+<p>Scoop 专注于开源和命令行开发工具，不符合其标准的不可能进入 main bucket（Scoop 安装后便自带的），因而虽然通过 scoop install skype 也能安装 Skype，但是只能放在 extra bucket 中。</p>
+<p>使用 Scoop 安装的应用程序通常称为“便携式”用程序，需要的权限更少，对系统产生的副作用也更少。Scoop 将软件直接安装到我们的用户目录下，安装过程不需要申请管理员权限（UAC）也不会污染系统环境变量，相比包管理器和应用仓库更简单。使用 Scoop 最简单的形式只需 Git + JSON。</p>
+<p>⚠️️ <strong>NOTICE</strong>：对于像 VirtualBox、Docker for Windows，输入法等这些需要高权限的软件仍然要通过在官网下载安装包进行安装。</p>
+<h2 id="scoop-安装与卸载">Scoop 安装与卸载</h2>
+<h3 id="scoop-安装">Scoop 安装</h3>
+<p>参考<a href="https://scoop.sh/">官方教程</a></p>
+<p><strong>环境要求</strong>：</p>
+<ul>
+<li>PowerShell 5 or later, include PowerShell Core（版本信息可在 PowerShell 中使用命令 $psversiontable 查看 PSVersion）</li>
+<li>NET Framework 4.5 or later</li>
+</ul>
+<p><strong>安装步骤</strong>：</p>
+<p>打开 PowerShell</p>
+<ol>
+<li>
+<p>打开远程权限</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">Set-ExecutionPolicy</span> <span class="n">RemoteSigned</span> <span class="n">-scope</span> <span class="n">CurrentUser</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>出现提示<code>是否要更改执行策略?</code>，输入 Y 回车</p>
+</li>
+<li>
+<p>自定义 Scoop 安装目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nv">$env:SCOOP</span><span class="p">=</span><span class="s1">&#39;Your_Scoop_Path&#39;</span>
+<span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;SCOOP&#39;</span><span class="p">,</span> <span class="nv">$env:SCOOP</span><span class="p">,</span> <span class="s1">&#39;User&#39;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>💡 <strong>NOTE</strong>: 如果跳过该步骤，Scoop 将默认把所有用户安装的 App 和 Scoop 本身置于 <code>C:\Users\&lt;user_name&gt;\scoop</code></p>
+</li>
+<li>
+<p>Scoop 下载安装与更新</p>
+<p>使用官网给出的命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">iwr </span><span class="n">-useb</span> <span class="n">get</span><span class="p">.</span><span class="n">scoop</span><span class="p">.</span><span class="n">sh</span> <span class="p">|</span> <span class="nb">iex
+</span><span class="nb"></span><span class="n">scoop</span> <span class="n">update</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>或者使用国内镜像加速：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="nb">iwr </span><span class="n">-useb</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">gitee</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">glsnames</span><span class="p">/</span><span class="nb">scoop-installer</span><span class="p">/</span><span class="n">raw</span><span class="p">/</span><span class="n">master</span><span class="p">/</span><span class="n">bin</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">ps1</span> <span class="p">|</span> <span class="nb">iex
+</span><span class="nb"></span><span class="n">scoop</span> <span class="n">config</span> <span class="n">SCOOP_REPO</span> <span class="s1">&#39;https://gitee.com/glsnames/Scoop-Core&#39;</span>
+<span class="n">scoop</span> <span class="n">update</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>检查安装</p>
+<p>通过 scoop 或 scoop help 命令查看使用简介，若输出帮助信息，说明安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">Usage</span><span class="err">:</span> <span class="n">scoop</span> <span class="p">[&lt;</span><span class="n">COMMAND</span><span class="p">&gt;]</span> <span class="p">[&lt;</span><span class="n">OPTIONS</span><span class="p">&gt;]</span>
+
+<span class="n">Windows</span> <span class="n">command</span> <span class="n">line</span> <span class="n">installer</span>
+
+<span class="n">General</span> <span class="n">exit</span> <span class="n">codes</span><span class="err">:</span>
+<span class="n">0</span> <span class="p">-</span> <span class="n">Everything</span> <span class="n">OK</span>
+<span class="n">1</span> <span class="p">-</span> <span class="n">No</span> <span class="k">parameter</span> <span class="n">provided</span> <span class="n">or</span> <span class="n">usage</span> <span class="n">shown</span>
+<span class="n">2</span> <span class="p">-</span> <span class="n">Argument</span> <span class="n">parsing</span> <span class="n">error</span>
+<span class="n">3</span> <span class="p">-</span> <span class="n">General</span> <span class="n">execution</span> <span class="n">error</span>
+<span class="n">4</span> <span class="p">-</span> <span class="n">Permission</span><span class="p">/</span><span class="n">Privileges</span> <span class="n">related</span> <span class="n">issue</span>
+<span class="n">10</span><span class="p">+</span> <span class="p">-</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">failed</span> <span class="n">actions</span> <span class="p">(</span><span class="n">installations</span><span class="p">,</span> <span class="n">updates</span><span class="p">,</span> <span class="p">...)</span>
+
+<span class="nb">Type </span><span class="s1">&#39;scoop help &lt;COMMAND&gt;&#39;</span> <span class="n">to</span> <span class="n">get</span> <span class="n">help</span> <span class="k">for</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">command</span><span class="p">.</span>
+
+<span class="n">Available</span> <span class="n">commands</span> <span class="n">are</span><span class="err">:</span>
+
+<span class="k">alias</span>       <span class="n">Manage</span> <span class="n">scoop</span> <span class="n">aliases</span><span class="p">.</span>
+<span class="n">bucket</span>      <span class="n">Manage</span> <span class="n">local</span> <span class="n">scoop</span> <span class="n">buckets</span><span class="p">.</span>
+<span class="n">cache</span>       <span class="n">Show</span> <span class="n">or</span> <span class="nb">clear </span><span class="n">the</span> <span class="n">download</span> <span class="n">cache</span><span class="p">.</span>
+<span class="nb">cat </span>        <span class="n">Show</span> <span class="n">content</span> <span class="n">of</span> <span class="n">specified</span> <span class="n">manifest</span><span class="p">(</span><span class="n">s</span><span class="p">).</span>
+<span class="n">checkup</span>     <span class="n">Check</span> <span class="n">system</span> <span class="k">for</span> <span class="n">pontential</span> <span class="n">problems</span><span class="p">.</span>
+<span class="n">cleanup</span>     <span class="n">Perform</span> <span class="n">cleanup</span> <span class="n">on</span> <span class="n">specified</span> <span class="n">installed</span> <span class="n">application</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">by</span> <span class="n">removing</span> <span class="n">old</span><span class="p">/</span><span class="n">not</span> <span class="n">actively</span> <span class="n">used</span> <span class="n">versions</span><span class="p">.</span>
+<span class="n">config</span>      <span class="n">Get</span> <span class="n">or</span> <span class="nb">set </span><span class="n">configuration</span> <span class="n">values</span> <span class="n">into</span> <span class="n">scoop</span> <span class="n">configuration</span> <span class="n">file</span><span class="p">.</span>
+<span class="n">depends</span>     <span class="n">List</span> <span class="n">dependencies</span> <span class="k">for</span> <span class="n">an</span> <span class="n">application</span><span class="p">.</span>
+<span class="n">download</span>    <span class="n">Download</span> <span class="n">manifest</span> <span class="n">files</span> <span class="n">into</span> <span class="n">cache</span> <span class="n">folder</span><span class="p">.</span>
+<span class="n">export</span>      <span class="n">Export</span> <span class="p">(</span><span class="n">an</span> <span class="n">importable</span><span class="p">)</span> <span class="n">list</span> <span class="n">of</span> <span class="n">installed</span> <span class="n">applications</span><span class="p">.</span>
+<span class="n">help</span>        <span class="n">Show</span> <span class="n">help</span> <span class="k">for</span> <span class="n">specific</span> <span class="n">scoop</span> <span class="n">command</span> <span class="n">or</span> <span class="n">scoop</span> <span class="n">itself</span><span class="p">.</span>
+<span class="n">hold</span>        <span class="n">Hold</span> <span class="n">an</span> <span class="n">application</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">to</span> <span class="n">disable</span> <span class="n">updates</span><span class="p">.</span>
+<span class="n">home</span>        <span class="n">Open</span> <span class="n">the</span> <span class="n">application</span><span class="s1">&#39;s homepage in default browser.
+</span><span class="s1">info        Display information about an application.
+</span><span class="s1">install     Install specific application(s).
+</span><span class="s1">list        List installed applications.
+</span><span class="s1">prefix      Return the location/path of installed application.
+</span><span class="s1">reset       Force binaries/shims, shortcuts, environment variables and persisted data to be re-linked.
+</span><span class="s1">search      Search for applications, which are available for installation.
+</span><span class="s1">status      Show status and check for available updates for all installed applications.
+</span><span class="s1">unhold      Unhold an installed application(s) to enable updates.
+</span><span class="s1">uninstall   Uninstall specified application(s).
+</span><span class="s1">update      Update installed application(s), or scoop itself.
+</span><span class="s1">utils       Wrapper around utilities for maintaining buckets and manifests.
+</span><span class="s1">virustotal  Search virustotal database for potential viruses in files provided in manifest(s).
+</span><span class="s1">which       Locate the path to a shim/executable of application that was installed with scoop (similar to &#39;</span><span class="n">which</span><span class="err">&#39;</span> <span class="n">on</span> <span class="n">Li</span>
+            <span class="n">nux</span><span class="p">).</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h3 id="scoop-卸载">Scoop 卸载</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">uninstall</span> <span class="n">scoop</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="scoop-包管理">Scoop 包管理</h2>
+<h3 id="软件仓库-bucket-安装-gui-程序等">软件仓库 bucket （安装 GUI 程序等）</h3>
+<p>Scoop 默认软件仓库（main bucket）软件数量是有限的。同时由于 Scoop 的设计初衷是为了方便 Windows 开发者安装和配置 <em>开发工具</em>，其默认软件仓库的收录条件也就很苛刻</p>
+<p>It MUST be:</p>
+<ul>
+<li>主流的开发者工具</li>
+<li>维护中的最新版本</li>
+<li>完整版本（非 Trial 版本）</li>
+</ul>
+<p>It CANNNOT be:</p>
+<ul>
+<li>有复杂的安装前与安装后处理步骤</li>
+<li>有 GUI</li>
+</ul>
+<p>这个最后一点恐怕是最严格的条件了，直接否决了一系列用户向软件（Firefox、Typora 等等）的收录。</p>
+<p>但是我们一样可以安装我们常用的图形界面软件，这就涉及到接下来我要介绍的，与 Homebrew cask 的设计理念类似的 Scoop bucket。</p>
+<blockquote>
+<p>bucket</p>
+</blockquote>
+<p>在 Scoop 中，bucket 就是一个软件仓库。</p>
+<p>Scoop 将仓库缓存至本地，当我们想要安装一个软件的时候，Scoop 就从本地的仓库中挑选出我们想要安装的软件的 <strong>安装配置文件</strong>，并依照这个配置文件进行软件的安装工作，包括：</p>
+<ul>
+<li>软件源（从哪里下载软件）</li>
+<li>安装步骤（如何安装软件）</li>
+<li>安装路径（安装到哪里）</li>
+<li>环境配置（需要修改更新什么环境变量）</li>
+<li>安装之前（之后）要做什么准备（善后）工作
+……</li>
+</ul>
+<p>这就是 Scoop 安装软件的一个大体过程。</p>
+<p>比如我们希望安装 aria2 这个软件，可以使用 info 命令查看它的详细配置</p>
+<p>使用命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">info</span> <span class="n">aria2</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>输出：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">Name</span><span class="err">:</span> <span class="n">aria2</span>
+<span class="n">Version</span><span class="err">:</span> <span class="n">1</span><span class="p">.</span><span class="n">36</span><span class="p">.</span><span class="n">0</span><span class="p">-</span><span class="n">1</span>
+<span class="n">Description</span><span class="err">:</span> <span class="n">Lightweight</span> <span class="nb">multi-protocol</span> <span class="p">&amp;</span> <span class="nb">multi-source</span> <span class="nb">command-line</span> <span class="n">download</span> <span class="n">utility</span>
+<span class="n">Website</span><span class="err">:</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">aria2</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">/</span>
+<span class="n">License</span><span class="err">:</span> <span class="n">GPL</span><span class="p">-</span><span class="n">2</span><span class="p">.</span><span class="n">0</span><span class="o">-or</span><span class="n">-later</span> <span class="p">(</span><span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">spdx</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">licenses</span><span class="p">/</span><span class="n">GPL</span><span class="p">-</span><span class="n">2</span><span class="p">.</span><span class="n">0</span><span class="o">-or</span><span class="n">-later</span><span class="p">.</span><span class="n">html</span><span class="p">)</span>
+<span class="n">Manifest</span><span class="err">:</span>
+  <span class="p">&lt;</span><span class="nb">Your-path</span><span class="n">-to-Scoop</span><span class="p">&gt;\</span><span class="n">buckets</span><span class="p">\</span><span class="n">main</span><span class="p">\</span><span class="n">bucket</span><span class="p">\</span><span class="n">aria2</span><span class="p">.</span><span class="n">json</span>
+<span class="n">Installed</span><span class="err">:</span>
+  <span class="p">&lt;</span><span class="nb">Your-path</span><span class="n">-to-Scoop</span><span class="p">&gt;\</span><span class="n">apps</span><span class="p">\</span><span class="n">aria2</span><span class="p">\</span><span class="n">1</span><span class="p">.</span><span class="n">36</span><span class="p">.</span><span class="n">0</span><span class="p">-</span><span class="n">1</span>
+<span class="n">Binaries</span><span class="err">:</span>
+ <span class="n">aria2c</span><span class="p">.</span><span class="n">exe</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>安装 Scoop 后默认添加了主仓库（main bucket）软件安装配置文件的集合。可以在 GitHub 上查看 <a href="https://github.com/ScoopInstaller/Main/tree/master/bucket">Main bucket 的软件列表</a> 。</p>
+<p>可以通过添加 bucket 来添加其他软件仓库，从而下载我们想要的软件的安装配置文件，来安装不在默认仓库中的软件。</p>
+<p>Scoop 给我们提供了很多可以直接使用的 bucket，就是为了方便我们安装更为常见的带有 GUI 的软件。一个最为常见的 bucket 是 extras，这里面基本涵盖了大部分不符合 main bucket 收录条件的常用软件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">bucket</span> <span class="n">add</span> <span class="n">extras</span>
+<span class="n">scoop</span> <span class="n">update</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="官方维护的-bucket">官方维护的 bucket</h4>
+<p>查看 Scoop <em>直接识别</em> 的 bucket 列表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">bucket</span> <span class="n">known</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加相应的 bucket：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">bucket</span> <span class="n">add</span> <span class="p">&lt;</span><span class="nb">bucket-name</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>与开发环境安装没有太大关系的仓库：</p>
+<ul>
+<li>extras：Scoop 官方维护的一个仓库，涵盖了大部分因为种种原因不能被收录进主仓库的常用软件
+<a href="https://github.com/ScoopInstaller/Extras">Bucket 地址</a></li>
+<li>nirsoft：一个 NirSoft 开发的小工具的安装合集。NirSoft 制作了大量的小工具，包括系统工具、网络工具、密码恢复等
+<a href="https://github.com/kodybrown/scoop-nirsoft">Bucket 地址</a>
+<a href="http://www.nirsoft.net/">NirSoft 官网地址</a></li>
+<li>games：游戏与游戏相关的工具合集。包含了大量免费/开源的小游戏
+<a href="https://github.com/Calinou/scoop-games">Bucket 地址</a></li>
+</ul>
+<p>其余 bucket 都是和开发环境相关的，比如 java 这个 bucket 就是为了安装 JDK 用的 bucket</p>
+<h4 id="社区提供的-bucket">社区提供的 bucket</h4>
+<p>将社区维护的 bucket 添加至本机的 Scoop bucket 列表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">bucket</span> <span class="n">add</span> <span class="p">&lt;</span><span class="nb">bucket-name</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nb">bucket-origin</span><span class="n">-url</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>添加仓库后可以通过如下命令安装在对应仓库中的 App ：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">install</span> <span class="p">&lt;</span><span class="nb">bucket-name</span><span class="p">&gt;/&lt;</span><span class="nb">app-name</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="进阶操作">进阶操作</h4>
+<p>学习以下内容前你需要了解：</p>
+<ul>
+<li>Git 与 GitHub</li>
+<li>JSON</li>
+</ul>
+<blockquote>
+<p>这些 bucket 中都找不到我想要安装的软件？</p>
+</blockquote>
+<p>可以自己维护一个 bucket，加入所需软件的安装步骤配置文件（.json）</p>
+<p><strong>在 GitHub 上托管自定义 bucket</strong>：</p>
+<p>步骤参考 <a href="https://github.com/ScoopInstaller/Scoop/wiki/Buckets">官方文档中的 Demo</a></p>
+<ol>
+<li>
+<p>新建一个 GitHub 仓库名为 my-bucket</p>
+</li>
+<li>
+<p>向 my-bucket 中添加一个名字叫 hello 的 App：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/&lt;your-username&gt;/my-bucket
+<span class="nb">cd</span> my-bucket
+<span class="s1">&#39;{ version: &#34;1.0&#34;, url: &#34;https://gist.github.com/lukesampson/6446238/raw/hello.ps1&#34;, bin: &#34;hello.ps1&#34; }&#39;</span> &gt; hello.json
+git add .
+git commit -m <span class="s2">&#34;add hello app&#34;</span>
+git push
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>在 Scoop 中将 my-bucket 添加至你的 Scoop bucket 列表：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">bucket</span> <span class="n">add</span> <span class="nb">my-bucket</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/&lt;</span><span class="nb">your-username</span><span class="p">&gt;/</span><span class="nb">my-bucket</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>测试是否正常工作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">bucket</span> <span class="n">list</span> <span class="c"># -&gt; you should see &#39;my-bucket&#39;</span>
+<span class="n">scoop</span> <span class="n">saerch</span> <span class="n">hello</span> <span class="c"># -&gt; you should see hello listed under, &#39;my-bucket bucket:&#39;</span>
+<span class="n">scoop</span> <span class="n">install</span> <span class="n">hello</span>
+<span class="n">hello</span> <span class="c"># -&gt; you should see &#39;Hello, &lt;windows-username&gt;!&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p>继续对 hello.json 进行配置，包括下载地址、安装步骤等一系列配置方法请参考 <a href="https://github.com/ScoopInstaller/Scoop/wiki/App-Manifests">App Manifests</a></p>
+<h3 id="安装-app">安装 App</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># 使用 scoop search 命令在本地 bucket 搜索 App 的具体名称</span>
+<span class="n">scoop</span> <span class="n">search</span> <span class="p">&lt;</span><span class="nb">incomplete-app</span><span class="n">-name</span><span class="p">&gt;</span>
+<span class="n">scoop</span> <span class="n">install</span> <span class="p">&lt;</span><span class="nb">app-name</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="实用仓库与工具推荐">实用仓库与工具推荐</h2>
+<h3 id="scoop-completion命令补全">scoop-completion：命令补全</h3>
+<p><strong>安装与启用</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># add extras bucket if you haven&#39;t</span>
+<span class="n">scoop</span> <span class="n">bucket</span> <span class="n">add</span> <span class="n">extras</span>
+
+<span class="c"># install</span>
+<span class="n">scoop</span> <span class="n">install</span> <span class="nb">scoop-completion</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在 <strong>当前</strong> 终端中启用 scoop-completion</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># enable completion in current shell, use absolute path because PowerShell Core not respect $env:PSModulePath</span>
+<span class="nb">Import-Module</span> <span class="s2">&#34;</span><span class="p">$($(</span><span class="nb">Get-Item</span> <span class="p">$(</span><span class="nb">Get-Command</span> <span class="n">scoop</span><span class="p">.</span><span class="n">ps1</span><span class="p">).</span><span class="n">Path</span><span class="p">).</span><span class="n">Directory</span><span class="p">.</span><span class="n">Parent</span><span class="p">.</span><span class="n">FullName</span><span class="p">)</span><span class="s2">\modules\scoop-completion&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>若需要每次打开终端自动启动 scoop-completion，需要修改用户配置文件 $profile</p>
+<p>💡 <strong>NOTE</strong>：如果需要为所有用户/主机启用 scoop-completion，请参考<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_profiles?view=powershell-7.2&amp;viewFallbackFrom=powershell-6#the-profile-variable">微软 $PROFILE 官方文档</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># create profile if not exist</span>
+<span class="k">if</span> <span class="p">(!(</span><span class="nb">Test-Path</span> <span class="nv">$profile</span><span class="p">))</span> <span class="p">{</span> <span class="nb">New-Item</span> <span class="n">-Path</span> <span class="nv">$profile</span> <span class="n">-ItemType</span> <span class="s2">&#34;file&#34;</span> <span class="n">-Force</span> <span class="p">}</span>
+
+<span class="c"># print $profile path</span>
+<span class="nv">$profile</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>用文本编辑器打开输出的 $profile 路径，将上面启用 scoop-completion 的代码复制到该文件中</p>
+<p><strong>用法</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">ins</span><span class="no">[Press Tab]</span>
+<span class="n">scoop</span> <span class="n">install</span> <span class="n">py</span><span class="p">[</span><span class="n">Press</span> <span class="n">Ctrl</span><span class="p">+</span><span class="n">Space</span><span class="p">]</span>
+<span class="n">scoop</span> <span class="n">uninstall</span> <span class="p">[</span><span class="n">Press</span> <span class="n">Ctrl</span><span class="p">+</span><span class="n">Space</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>卸载</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">uninstall</span> <span class="nb">scoop-completion</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>⚠️️ <strong>NOTICE</strong>：如果前面设置了自动启动，卸载后需要将 $profile 中的启用代码删除</p>
+<h3 id="aria2加速下载">Aria2：加速下载</h3>
+<p>一款自由、跨平台命令行界面的下载管理器，该软件根据GPLv2许可证进行分发。
+支持的下载协议有：HTTP、HTTPS、FTP、Bittorrent和Metalink。</p>
+<p><strong>安装</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">install</span> <span class="n">aria2</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>使 Aria2 在 Scoop 中默认开启</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="c"># </span>
+<span class="n">scoop</span> <span class="n">config</span> <span class="nb">aria2-enabled</span> <span class="n">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>若使用代理，有时需要通过如下命令关闭 aria2</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">config</span> <span class="nb">aria2-enabled</span> <span class="n">false</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>其他参数可以参考 <a href="https://aria2.github.io/">Aria2 官网</a> 的文档</p>
+<h3 id="gowlinux-命令行">gow：Linux 命令行</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">install</span> <span class="n">gow</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="sudo调用管理员权限">sudo：调用管理员权限</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">install</span> <span class="n">sudo</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="cmderwindows-终端模拟器">cmder：Windows 终端模拟器</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">install</span> <span class="n">cmder</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="versions安装特定版本与版本切换">versions：安装特定版本与版本切换</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span> <span class="n">bucket</span> <span class="n">add</span> <span class="n">versions</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Lambert</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/scoop/">Scoop</a>
+          <a href="/tags/windows/">Windows</a>
+          <a href="/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/">包管理器</a>
+          </div>
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:LambLeobert@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/14069302/lambert" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/exitance" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/ku-luo-luo-he-lu-xi-lu" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://gitlab.com/exitance" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://space.bilibili.com/473051700?spm_id_from=333.1007.0.0" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Lambert</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script type="text/javascript" async src="/lib/mathjax/es5/tex-mml-chtml.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

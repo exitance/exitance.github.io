@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>包管理器 on Lambert&#39;s blog</title>
+    <link>http://localhost:1313/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/</link>
+    <description>Recent content in 包管理器 on Lambert&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 16 Jan 2022 13:30:31 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Windows 下统一开发环境 Scoop 的安装与使用</title>
+      <link>http://localhost:1313/post/scoop/</link>
+      <pubDate>Sun, 16 Jan 2022 13:30:31 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/scoop/</guid>
+      <description>包 package 或称“软件包”，可以理解为广义上的软件，通常指的是一个应用程序，它可以是常见的基于图形用户界面（ GUI ）的软件、基于命令行界面（ CLI ）的开发工</description>
+    </item>
+    
+  </channel>
+</rss>
