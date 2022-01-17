@@ -332,7 +332,7 @@ if (!(Test-Path $profile)) { New-Item -Path $profile -ItemType "file" -Force }
 $profile
 ```
 
-用文本编辑器打开输出的 $profile 路径，将上面启用 scoop-completion 的代码复制到该文件中
+用文本编辑器打开输出的 $profile 路径，将上面启用 scoop-completion 的代码复制到该文件中，重启 PowerShell 即可
 
 **用法**：
 
