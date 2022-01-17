@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>在 Web 浏览器上进行 RSS 阅读 - Lambert&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Lambert" /><meta name="description" content="RSS (RDF Site Summary or Really Simple Syndication) 中文称为 简易内容聚合，是一种 消息来源（web feed）格式规范，用以聚合 多个 网站更新的內容并且自动通知网站订阅者。 也就是说，" /><meta name="keywords" content="Graphics, DeepLearning, Math" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/rss/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b874a8796a492f0d7c86bb24c33cbf052935783a5778ebaf819a8e514bf49f10.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="在 Web 浏览器上进行 RSS 阅读" />
+<meta property="og:description" content="RSS (RDF Site Summary or Really Simple Syndication) 中文称为 简易内容聚合，是一种 消息来源（web feed）格式规范，用以聚合 多个 网站更新的內容并且自动通知网站订阅者。 也就是说，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/rss/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-17T11:11:38+08:00" />
+<meta property="article:modified_time" content="2022-01-17T11:11:38+08:00" />
+
+<meta itemprop="name" content="在 Web 浏览器上进行 RSS 阅读">
+<meta itemprop="description" content="RSS (RDF Site Summary or Really Simple Syndication) 中文称为 简易内容聚合，是一种 消息来源（web feed）格式规范，用以聚合 多个 网站更新的內容并且自动通知网站订阅者。 也就是说，"><meta itemprop="datePublished" content="2022-01-17T11:11:38+08:00" />
+<meta itemprop="dateModified" content="2022-01-17T11:11:38+08:00" />
+<meta itemprop="wordCount" content="952">
+<meta itemprop="keywords" content="RSS,订阅," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="在 Web 浏览器上进行 RSS 阅读"/>
+<meta name="twitter:description" content="RSS (RDF Site Summary or Really Simple Syndication) 中文称为 简易内容聚合，是一种 消息来源（web feed）格式规范，用以聚合 多个 网站更新的內容并且自动通知网站订阅者。 也就是说，"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Lambert</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Lambert</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">在 Web 浏览器上进行 RSS 阅读</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-17 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7%E4%B8%8E%E7%BD%91%E7%AB%99/"> 实用工具与网站 </a>
+            </div>
+          <span class="more-meta"> 952 words </span>
+          <span class="more-meta"> 2 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#why-rss-">WHY RSS ?</a></li>
+        <li><a href="#简单几步在你的-web-浏览器上开启-rss-阅读之旅">简单几步在你的 Web 浏览器上开启 RSS 阅读之旅</a></li>
+        <li><a href="#制作-rss">制作 RSS</a></li>
+        <li><a href="#附录主流浏览器扩展商店网址">附录：主流浏览器扩展商店网址</a></li>
+        <li><a href="#推荐阅读与参考文献">推荐阅读与参考文献</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>RSS (RDF Site Summary or Really Simple Syndication)</p>
+</blockquote>
+<p>中文称为 <em>简易内容聚合</em>，是一种 <strong>消息来源（web feed）格式规范</strong>，用以聚合 <em>多个</em> 网站更新的內容并且自动通知网站订阅者。</p>
+<p>也就是说，你可以在多个支持 RSS 的网站上订阅你感兴趣的内容（知乎专栏、博客等），而在一个单独的 RSS 阅读器中获取并阅读它们。</p>
+<h2 id="why-rss-">WHY RSS ?</h2>
+<p><del>文艺复兴</del></p>
+<p>RSS 的对立面是算法推荐，比如百度、知乎、微博等平台，算法推荐根据你的历史数据判断你的喜好，从而自动为你推送内容，这些平台上充斥着广告，替你定义了你的用户画像，然后把你潜移默化中变成了大数据眼中的你。</p>
+<p>RSS 是一种公开的协议，可自由更换平台与客户端。<strong>获取信息的权力完全自治</strong>，是一种更高效的阅读方式，相比算法推荐，拥有了可控性和安全感，隐私完全掌握在自己手里。<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>当然，RSS 的门槛也比算法推荐要高，毕竟需要自己挑选阅读内容。</p>
+<h2 id="简单几步在你的-web-浏览器上开启-rss-阅读之旅">简单几步在你的 Web 浏览器上开启 RSS 阅读之旅</h2>
+<ol>
+<li>
+<p>在浏览器上安装扩展（插件） <em>Tampermonkey（油猴）脚本管理器</em>（后续安装脚本推荐 <a href="https://greasyfork.org/zh-CN">GreasyFork</a> 网站）</p>
+<ul>
+<li><a href="https://addons.mozilla.org/zh-CN/firefox/addon/tampermonkey/">适用于 Firefox 的下载地址</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo/related">适用于 Google Chrome 的下载地址</a>，国内访问需要科学上网</li>
+<li><a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd">适用于 Microsoft Edge 的下载地址</a></li>
+</ul>
+</li>
+<li>
+<p>安装用于显示当前网站所有 RSS 的 <a href="https://greasyfork.org/zh-CN/scripts/373252-rss-show-site-all-rss">RSS+ 脚本</a>，安装后你可以在支持 RSS 的网站右下角找到一个显示数字的小圆圈，点击会弹出 RSS 订阅源，复制后添加到下面的 RSS 阅读器中即可订阅此内容的 RSS
+💡 <strong>NOTE</strong>: 若链接失效，请直接到上面的 GreasyFork 网站搜索 RSS+</p>
+</li>
+<li>
+<p>安装 RSS 阅读器，这里推荐浏览器插件 <em>Feedbro</em></p>
+<ul>
+<li><a href="https://addons.mozilla.org/zh-CN/firefox/addon/feedbroreader/?utm_source=addons.mozilla.org&amp;utm_medium=referral&amp;utm_content=search">适用于 Firefox 的下载地址</a></li>
+<li><a href="https://chrome.google.com/webstore/detail/feedbro/mefgmmbdailogpfhfblcnnjfmnpnmdfa/related">适用于 Google Chrome 的下载地址</a>，国内访问需要科学上网</li>
+<li><a href="https://microsoftedge.microsoft.com/addons/detail/feedbro/pdfbckdfhgaohcfdkcgpggcifmalimfd">适用于 Microsoft Edge 的下载地址</a></li>
+</ul>
+<p>安装后在浏览器右上角会显示此插件（或者点击扩展功能图标显示插件列表），点击对应插件可进行需要的操作，比如打开阅读器选择 Open Feed Reader</p>
+</li>
+</ol>
+<h2 id="制作-rss">制作 RSS</h2>
+<blockquote>
+<p>网站不提供 RSS 怎么办？如何为我的个人博客提供 RSS？</p>
+</blockquote>
+<p>使用工具自己制作 RSS 源，<del>你甚至可以为抖音制作 RSS 源</del></p>
+<ul>
+<li>新手推荐使用 <a href="https://feed43.com/">feed43</a>，适用于 <em>静态页面</em> <sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>，可使用全文订阅，只需要源网址即可制作</li>
+<li>需要抓动态页面、多页面内容，可以进阶到 <a href="https://github.com/huginn/huginn/blob/master/doc/manual/installation.md">Huginn</a></li>
+<li>对微博、知乎、豆瓣、bilibili、Youtube 等主流网站进行 RSS 转化可以使用开源项目 <a href="https://docs.rsshub.app/">RSSHub</a><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup></li>
+</ul>
+<h2 id="附录主流浏览器扩展商店网址">附录：主流浏览器扩展商店网址</h2>
+<p>若上述插件链接失效，可以直接在扩展商店中搜索对应插件</p>
+<ul>
+<li><a href="https://addons.mozilla.org/zh-CN/firefox/">Firefox</a></li>
+<li><a href="https://chrome.google.com/webstore/category/extensions">Google Chrome</a></li>
+<li><a href="https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home">Microsoft Edge</a></li>
+</ul>
+<h2 id="推荐阅读与参考文献">推荐阅读与参考文献</h2>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://sspai.com/post/56198#!">RSS - 高效率的阅读方式</a>&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://www.freecodecamp.org/news/static-vs-dynamic-web-pages/">Static vs Dynamic Web Pages – What&rsquo;s the Difference?</a>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p><a href="https://zhuanlan.zhihu.com/p/61562265">RSS 速成篇：RSSHub 捡现成的轮子</a>&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Lambert</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/wechat.jpg">
+        <span>wechat</span>
+      </label>
+    
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/rss/">RSS</a>
+          <a href="/tags/%E8%AE%A2%E9%98%85/">订阅</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/favicon_websites/">
+            <span class="next-text nav-default">Favicon 生成网站推荐</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:LambLeobert@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/14069302/lambert" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/exitance" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/ku-luo-luo-he-lu-xi-lu" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://gitlab.com/exitance" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://space.bilibili.com/473051700?spm_id_from=333.1007.0.0" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Lambert</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script type="text/javascript" async src="/lib/mathjax/es5/tex-mml-chtml.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

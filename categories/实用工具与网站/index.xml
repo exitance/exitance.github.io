@@ -6,7 +6,16 @@
     <description>Recent content in 实用工具与网站 on Lambert&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 17 Jan 2022 09:39:25 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7%E4%B8%8E%E7%BD%91%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Jan 2022 11:11:38 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7%E4%B8%8E%E7%BD%91%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 Web 浏览器上进行 RSS 阅读</title>
+      <link>http://localhost:1313/post/rss/</link>
+      <pubDate>Mon, 17 Jan 2022 11:11:38 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/rss/</guid>
+      <description>RSS (RDF Site Summary or Really Simple Syndication) 中文称为 简易内容聚合，是一种 消息来源（web feed）格式规范，用以聚合 多个 网站更新的內容并且自动通知网站订阅者。 也就是说，</description>
+    </item>
+    
     <item>
       <title>Favicon 生成网站推荐</title>
       <link>http://localhost:1313/post/favicon_websites/</link>
