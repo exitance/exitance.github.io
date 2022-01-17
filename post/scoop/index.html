@@ -49,7 +49,7 @@
 <meta itemprop="name" content="Windows 下统一开发环境 Scoop 的安装与使用">
 <meta itemprop="description" content="包 package 或称“软件包”，可以理解为广义上的软件，通常指的是一个应用程序，它可以是常见的基于图形用户界面（ GUI ）的软件、基于命令行界面（ CLI ）的开发工"><meta itemprop="datePublished" content="2022-01-16T13:30:31+08:00" />
 <meta itemprop="dateModified" content="2022-01-16T13:30:31+08:00" />
-<meta itemprop="wordCount" content="3183">
+<meta itemprop="wordCount" content="3287">
 <meta itemprop="keywords" content="Scoop,Windows,包管理器," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Windows 下统一开发环境 Scoop 的安装与使用"/>
 <meta name="twitter:description" content="包 package 或称“软件包”，可以理解为广义上的软件，通常指的是一个应用程序，它可以是常见的基于图形用户界面（ GUI ）的软件、基于命令行界面（ CLI ）的开发工"/>
@@ -132,7 +132,7 @@
         <div class="post-category">
             <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"> 开发工具 </a>
             </div>
-          <span class="more-meta"> 3183 words </span>
+          <span class="more-meta"> 3287 words </span>
           <span class="more-meta"> 7 mins read </span>
         
       </div>
@@ -192,8 +192,8 @@
 </ul>
 <h2 id="why-scoop-">WHY Scoop ?</h2>
 <p>Scoop 由澳洲程序员 Luke Sampson 于 2015 年创建，其特色之一就是其安装管理不依赖“管理员权限”，这对使用有权限限制的公共计算机的使用者是一大利好。</p>
-<p>Chocolatey 整个社区发布的安装脚本有3000多个，而 Scoop 官方仓库发布的安装脚本有2000多个。脚本数量上不如 Chocolatey，但是 Scoop <em>自定义程度高</em>，<em>扩展性强</em>，可以非常方便的自己定制安装脚本。最关键的是，Scoop 的<em>维护</em>完胜前者，前者貌似脚本很多，但其中不少已经没人维护或者不再更新了。</p>
-<p>Mike Zick 在 <a href="https://sourceforge.net/p/mingw/mailman/mingw-msys/thread/200506130821.11185.mszick@morethan.org/">对 Cygwin 和 MSYS 的描述</a> 中提到他认为 Scoop 并不是一个包管理器，而是通过读取 JSON 描述文件来安装程序及其依赖。</p>
+<p>Chocolatey 整个社区发布的安装脚本有 3000 多个，而 Scoop 官方仓库发布的安装脚本有2000多个。脚本数量上不如 Chocolatey，但是 Scoop <em>自定义程度高</em>，<em>扩展性强</em>，可以非常方便的自己定制安装脚本。最关键的是，Scoop 的 <em>维护</em> 完胜前者，前者看起来脚本很多，但其中不少已经没人维护或者不再更新了。</p>
+<p>Mike Zick 在 <a href="https://sourceforge.net/p/mingw/mailman/mingw-msys/thread/200506130821.11185.mszick@morethan.org/">对 Cygwin 和 MSYS 的描述</a> 中提到他认为 Scoop 并不是一个包管理器，而是通过读取 JSON 描述文件来安装程序及其依赖的安装器（Installer）。</p>
 <p>Scoop 专注于开源和命令行开发工具，不符合其标准的不可能进入 main bucket（Scoop 安装后便自带的），因而虽然通过 scoop install skype 也能安装 Skype，但是只能放在 extra bucket 中。</p>
 <p>使用 Scoop 安装的应用程序通常称为“便携式”用程序，需要的权限更少，对系统产生的副作用也更少。Scoop 将软件直接安装到我们的用户目录下，安装过程不需要申请管理员权限（UAC）也不会污染系统环境变量，相比包管理器和应用仓库更简单。使用 Scoop 最简单的形式只需 Git + JSON。</p>
 <p>⚠️️ <strong>NOTICE</strong>：对于像 VirtualBox、Docker for Windows，输入法等这些需要高权限的软件仍然要通过在官网下载安装包进行安装。</p>
@@ -203,7 +203,7 @@
 <p><strong>环境要求</strong>：</p>
 <ul>
 <li>PowerShell 5 or later, include PowerShell Core（版本信息可在 PowerShell 中使用命令 $psversiontable 查看 PSVersion）</li>
-<li>NET Framework 4.5 or later</li>
+<li>.NET Framework 4.5 or later（<a href="https://dotnet.microsoft.com/en-us/download">.NET 下载地址</a>）</li>
 </ul>
 <p><strong>安装步骤</strong>：</p>
 <p>打开 PowerShell</p>
@@ -236,7 +236,7 @@
 </li>
 <li>
 <p>Scoop 下载安装与更新</p>
-<p>使用官网给出的命令</p>
+<p>使用官网给出的命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -264,6 +264,17 @@
 <li>
 <p>检查安装</p>
 <p>通过 scoop 或 scoop help 命令查看使用简介，若输出帮助信息，说明安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">scoop</span>
+<span class="n">scoop</span> <span class="n">help</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>输出：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -369,34 +380,26 @@
 </div>
 </div><h2 id="scoop-包管理">Scoop 包管理</h2>
 <h3 id="软件仓库-bucket-安装-gui-程序等">软件仓库 bucket （安装 GUI 程序等）</h3>
-<p>Scoop 默认软件仓库（main bucket）软件数量是有限的。同时由于 Scoop 的设计初衷是为了方便 Windows 开发者安装和配置 <em>开发工具</em>，其默认软件仓库的收录条件也就很苛刻</p>
-<p>It MUST be:</p>
-<ul>
-<li>主流的开发者工具</li>
-<li>维护中的最新版本</li>
-<li>完整版本（非 Trial 版本）</li>
-</ul>
-<p>It CANNNOT be:</p>
-<ul>
-<li>有复杂的安装前与安装后处理步骤</li>
-<li>有 GUI</li>
-</ul>
-<p>这个最后一点恐怕是最严格的条件了，直接否决了一系列用户向软件（Firefox、Typora 等等）的收录。</p>
-<p>但是我们一样可以安装我们常用的图形界面软件，这就涉及到接下来我要介绍的，与 Homebrew cask 的设计理念类似的 Scoop bucket。</p>
 <blockquote>
 <p>bucket</p>
 </blockquote>
-<p>在 Scoop 中，bucket 就是一个软件仓库。</p>
-<p>Scoop 将仓库缓存至本地，当我们想要安装一个软件的时候，Scoop 就从本地的仓库中挑选出我们想要安装的软件的 <strong>安装配置文件</strong>，并依照这个配置文件进行软件的安装工作，包括：</p>
+<p>在 Scoop 中，bucket 就是一个 <em>软件仓库</em>，与 Homebrew cask 的设计理念类似。</p>
+<p>Windows 下的软件安装几乎都伴随着 <em>软件安装器</em> 的使用，Scoop 的基本工作过程就是根据本地仓库（bucket）维护的 Manifest 文件（配置文件）去寻找与安装软件：</p>
+<ol>
+<li>寻找官方发布的软件源</li>
+<li>下载（指定版本的）软件</li>
+<li>运行软件安装器来安装下载得到的软件</li>
+<li>修改环境，安装后的善后工作等</li>
+</ol>
+<p>这就是 Scoop 安装软件的一个大体过程。</p>
+<p>Scoop 将仓库缓存至本地，当我们想要安装一个软件的时候，Scoop 就从本地仓库中挑选出我们想要安装的软件的 <strong>安装配置文件</strong>，并依照这个配置文件进行软件的安装工作，配置文件的内容包括：</p>
 <ul>
 <li>软件源（从哪里下载软件）</li>
 <li>安装步骤（如何安装软件）</li>
 <li>安装路径（安装到哪里）</li>
-<li>环境配置（需要修改更新什么环境变量）</li>
-<li>安装之前（之后）要做什么准备（善后）工作
-……</li>
+<li>环境配置（需要修改、更新什么环境变量）</li>
+<li>安装之前（之后）要做什么准备（善后）工作等</li>
 </ul>
-<p>这就是 Scoop 安装软件的一个大体过程。</p>
 <p>比如我们希望安装 aria2 这个软件，可以使用 info 命令查看它的详细配置</p>
 <p>使用命令</p>
 <div class="highlight"><div class="chroma">
@@ -421,7 +424,6 @@
 </span><span class="lnt"> 9
 </span><span class="lnt">10
 </span><span class="lnt">11
-</span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">Name</span><span class="err">:</span> <span class="n">aria2</span>
@@ -435,11 +437,22 @@
   <span class="p">&lt;</span><span class="nb">Your-path</span><span class="n">-to-Scoop</span><span class="p">&gt;\</span><span class="n">apps</span><span class="p">\</span><span class="n">aria2</span><span class="p">\</span><span class="n">1</span><span class="p">.</span><span class="n">36</span><span class="p">.</span><span class="n">0</span><span class="p">-</span><span class="n">1</span>
 <span class="n">Binaries</span><span class="err">:</span>
  <span class="n">aria2c</span><span class="p">.</span><span class="n">exe</span>
-
 </code></pre></td></tr></table>
 </div>
 </div><p>安装 Scoop 后默认添加了主仓库（main bucket）软件安装配置文件的集合。可以在 GitHub 上查看 <a href="https://github.com/ScoopInstaller/Main/tree/master/bucket">Main bucket 的软件列表</a> 。</p>
-<p>可以通过添加 bucket 来添加其他软件仓库，从而下载我们想要的软件的安装配置文件，来安装不在默认仓库中的软件。</p>
+<p>Scoop 安装的默认软件仓库（main bucket）中软件数量是有限的。同时由于 Scoop 的设计初衷是为了方便 Windows 开发者安装和配置 <em>开发工具</em>，其默认软件仓库的收录条件也就很苛刻</p>
+<p>It MUST be:</p>
+<ul>
+<li>主流的开发者工具</li>
+<li>维护中的最新版本</li>
+<li>完整版本（非 Trial 版本）</li>
+</ul>
+<p>It CANNNOT:</p>
+<ul>
+<li>有复杂的安装前与安装后处理步骤</li>
+<li>有 GUI（图形用户界面）</li>
+</ul>
+<p>虽然 Scoop 默认的软件仓库不收录这些软件，但我们仍然可以通过添加 bucket 来添加其他软件仓库，从而下载我们想要的软件的安装配置文件，来安装不在默认仓库中的软件。</p>
 <p>Scoop 给我们提供了很多可以直接使用的 bucket，就是为了方便我们安装更为常见的带有 GUI 的软件。一个最为常见的 bucket 是 extras，这里面基本涵盖了大部分不符合 main bucket 收录条件的常用软件。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
