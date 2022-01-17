@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>0. 语言与编码 - Lambert&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Lambert" /><meta name="description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言" /><meta name="keywords" content="Graphics, DeepLearning, Math" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/beginner_lang_code/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b874a8796a492f0d7c86bb24c33cbf052935783a5778ebaf819a8e514bf49f10.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="0. 语言与编码" />
+<meta property="og:description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/beginner_lang_code/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-17T22:07:24+08:00" />
+<meta property="article:modified_time" content="2022-01-17T22:07:24+08:00" />
+
+<meta itemprop="name" content="0. 语言与编码">
+<meta itemprop="description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言"><meta itemprop="datePublished" content="2022-01-17T22:07:24+08:00" />
+<meta itemprop="dateModified" content="2022-01-17T22:07:24+08:00" />
+<meta itemprop="wordCount" content="1514">
+<meta itemprop="keywords" content="计算理论,编码,语言," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="0. 语言与编码"/>
+<meta name="twitter:description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Lambert</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Lambert</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">0. 语言与编码</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-17 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/"> 写给小白的计算机科学与深度学习入门 </a>
+            </div>
+          <span class="more-meta"> 1514 words </span>
+          <span class="more-meta"> 4 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#专栏前言">专栏前言</a></li>
+        <li><a href="#语言">语言</a></li>
+        <li><a href="#编码">编码</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="专栏前言">专栏前言</h2>
+<p>本专栏的深度学习内容大部分基于 <a href="https://www.cs.sdu.edu.cn/">山东大学计算机科学与技术学院</a> 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言与其深度学习包以及老师提供的 Ubuntu 服务器，会相应补充关于服务器、环境配置等课程不会教授的内容，以及非计算机专业的同学学习此课程可能需要了解的一些计算机科学的基础知识，旨在帮助大家更好的学习。</p>
+<p>有关计算机科学的基础知识主要根据一些专业资料与本人对相关知识的理解，若有不当之处请不吝赐教。</p>
+<p>面向的对象：</p>
+<ul>
+<li>计算机专业对深度学习感兴趣的大一学生</li>
+<li>非计算机专业，出于兴趣或工作需要了解计算机基础知识或深度学习的人</li>
+</ul>
+<p>下面是写给对计算机不太了解的非计算机专业同学的计算机科学基础知识，有基础的同学可以选择性阅读。</p>
+<h2 id="语言">语言</h2>
+<p>要认识计算机科学，首先要了解的概念就是 <strong>语言（Language）</strong>。计算机专业大一新生入学的第一门专业基础课就是程序设计语言，即常说的编程语言。</p>
+<p>日常生活中我们提到语言通常是指 <em>自然语言（Natural Language）</em>，即平时交流使用的语言，这类语言不是人为设计（虽然有人试图强加一些规则）而是自然进化的。而计算机科学中的语言通常指 <em>形式语言（Formal Language）</em>，是用 <strong>精确</strong> 的数学或机器可处理的公式 <strong>定义</strong> 的语言（在计算机的某些领域，如自然语言处理中，会指出我们处理的即自然语言）。编程语言就是一种形式语言。</p>
+<blockquote>
+<p>🙋‍♂️ <strong>HELP</strong>: 自然语言是用于人与人之间交流的语言，你也可以认为编程语言就是用于人与计算机之间交流的语言。</p>
+</blockquote>
+<p>计算机的一个基础研究方向 <em>理论计算机科学（Theoretical Computer Science，TCS）</em> 中 <em>计算理论（Theory of Computation TOC）</em> 分支的研究对象就是语言，更准确地说是形式语言。</p>
+<p>形式语言一般有两个方面：<em>语法（Syntax）</em> 和 <em>语义（Semantics）</em>。专门研究语言的语法的数学和计算机科学分支叫做形式语言理论，它只研究语言的语法而不致力于它的语义。</p>
+<p>在形式语言理论中，形式语言是 <em>一个字母表上的某些有限长字符串的集合</em>，这个集合本身可以是无限的，而其中的字符串长度必须是有限的。这一看似简单的概念表达了甚至包括自然语言在内的所有语言的一个通用精确定义。比如使用中文表达所有可能的句子就组成了中文这一语言。</p>
+<p>特定编程语言对应的 <em>编译器</em> 或 <em>解释器</em>（相关概念在下文中会进行解释）只是一个分析其编程语言语法的 <strong>程序</strong>，这样的程序无法理解语言的语义（所以有时你会发现编译通过而调试结果与预期不符，因为你可能打错了什么字符，但有些“智能”的编译器会在一些问题上给出警告），在自然语言中你可能使用一些不符合语言语法的表述（<del>比如倒装句</del>），但是对方能够理解你的意思。但是编译器可不行！如果你的源代码文件不符合编程语言的语法，编译器只会报错。</p>
+<p>所以当你发现编译器报错，或者程序调试出现 Bug 的时候，一定是你错了（<del>或者你使用的包本身就有 Bug</del>），而不是编译器或计算机（除非你已经是达到可以<del>警告编译器</del>境界的编程高手了，<del>而这时候你应该不会在阅读我这个菜鸟写的文章</del>），请老老实实查阅相关资料，找到问题所在吧！</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 对于编译器的工作可以这样理解：编译器这一检查语法的程序执行的是严格定义的 <strong>算法（Algorithm）</strong>，而像自然语言处理这样试图理解语义的方向使用的是 <strong>启发式算法（Heuristic）</strong>，虽然我们经常看到有人使用算法来描述它们，但是 Algorithm 和 Heuristic 是有本质不同的！Algorithm 的其中一个要求是 <strong>正确性</strong>，而 Heuristic 并不能保证得到正确的结果！深度学习中的算法都属于 Heuristic</p>
+</blockquote>
+<p>在理论计算机科学中，语言常常被用来描述一个问题（Problem），比如，所有连通的无向图构成一个语言。这样的概念对于不了解理论计算机科学的人来说可能难以理解，这就引出了我下面要介绍的 <em>编码</em> 这一概念</p>
+<h2 id="编码">编码</h2>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Lambert</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/wechat.jpg">
+        <span>wechat</span>
+      </label>
+    
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/">计算理论</a>
+          <a href="/tags/%E7%BC%96%E7%A0%81/">编码</a>
+          <a href="/tags/%E8%AF%AD%E8%A8%80/">语言</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/rss/">
+            <span class="next-text nav-default">在 Web 浏览器上进行 RSS 阅读</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:LambLeobert@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/14069302/lambert" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/exitance" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/ku-luo-luo-he-lu-xi-lu" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://gitlab.com/exitance" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://space.bilibili.com/473051700?spm_id_from=333.1007.0.0" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Lambert</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        tags: 'ams',
+        }
+    };
+  </script>
+  <script type="text/javascript" async src="/lib/mathjax/es5/tex-mml-chtml.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
