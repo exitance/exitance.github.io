@@ -49,8 +49,8 @@
 <meta itemprop="name" content="0. 语言与编码">
 <meta itemprop="description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言"><meta itemprop="datePublished" content="2022-01-17T22:07:24+08:00" />
 <meta itemprop="dateModified" content="2022-01-17T22:07:24+08:00" />
-<meta itemprop="wordCount" content="6038">
-<meta itemprop="keywords" content="计算理论,编码,语言," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="9633">
+<meta itemprop="keywords" content="计算理论,硬件,语言," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0. 语言与编码"/>
 <meta name="twitter:description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言"/>
 
@@ -132,8 +132,8 @@
         <div class="post-category">
             <a href="/categories/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/"> 写给小白的计算机科学与深度学习入门 </a>
             </div>
-          <span class="more-meta"> 6038 words </span>
-          <span class="more-meta"> 13 mins read </span>
+          <span class="more-meta"> 9633 words </span>
+          <span class="more-meta"> 20 mins read </span>
         
       </div>
     </header>
@@ -146,7 +146,7 @@
     <li>
       <ul>
         <li><a href="#专栏前言">专栏前言</a></li>
-        <li><a href="#计算与语言形式语法">计算与语言：形式语法</a>
+        <li><a href="#计算与语言尝试解决与描述问题的语法">计算与语言：尝试解决与描述问题的语法</a>
           <ul>
             <li><a href="#计算是为了解决问题但不能解决所有问题">计算是为了解决问题，但不能解决所有问题</a></li>
             <li><a href="#计算机科学的语言形式语言">计算机科学的语言：形式语言</a></li>
@@ -154,6 +154,7 @@
         </li>
         <li><a href="#编码理解语义">编码：理解语义</a>
           <ul>
+            <li><a href="#二进制硬件的选择">二进制：硬件的选择</a></li>
             <li><a href="#硬件从理论到实际从抽象到具体">硬件——从理论到实际，从抽象到具体</a></li>
           </ul>
         </li>
@@ -193,7 +194,7 @@
 </ul>
 </blockquote>
 <p>下面是写给对计算机不太了解的非计算机专业同学的计算机科学基础知识，有基础的同学可以选择性阅读。</p>
-<h2 id="计算与语言形式语法">计算与语言：形式语法</h2>
+<h2 id="计算与语言尝试解决与描述问题的语法">计算与语言：尝试解决与描述问题的语法</h2>
 <h3 id="计算是为了解决问题但不能解决所有问题">计算是为了解决问题，但不能解决所有问题</h3>
 <p>什么是计算？为什么要计算？什么是计算机？什么是计算机科学？</p>
 <p>在这里我不会给计算（Compute）下一个严格的定义，区别于通常在数学中所说的计算（Calculate），计算机科学中的 <em>计算（Compute）</em> 可以被认为是 <strong>执行一个算法的过程</strong>，它包含了数学中的计算概念。</p>
@@ -230,7 +231,7 @@ $$</p>
 </blockquote>
 <p>到这里你应该对计算是什么有了一个大概的印象，但是为什么要计算？从前面的介绍中你可以总结出其中一个原因——因为有些问题是纯粹的数学或其他自然科学、工程学无法解决的。</p>
 <p>还有一些问题是数学和其他自然科学、工程学尚未找到解决方法的（比如微分方程的解析解），我们可以借助现代的计算机来进行大量复杂的计算得到近似结果（比如微分方程的数值解），很多时候近似结果是足够好的。</p>
-<p>当然，只有计算仍然有更多的问题仍然无法解决，我们需要心理学、文学、人类学等更丰富的学科。</p>
+<p>当然，只有计算仍然有更多的问题仍然无法解决，我们需要心理学、文学、人类学等更丰富的学科。而现在以人工智能和数据科学为代表的诸多计算机领域也逐渐向多学科交叉融合的方向发展，通常许多工程如机器翻译都需要计算机科学家与工程师和其他专业领域，如语言学、社会学、艺术学的专家合作，在这些特定领域的知识也称为 domain knowledge。</p>
 <h3 id="计算机科学的语言形式语言">计算机科学的语言：形式语言</h3>
 <p>要认识计算机科学，首先要了解的概念就是 <em>语言（Language）</em>。计算机专业大一新生入学的第一门专业基础课就是程序设计语言，即通常说的编程语言。</p>
 <p>日常生活中我们提到语言通常是指 <em>自然语言（Natural Language）</em>，即平时交流使用的语言，这类语言不是人为设计（虽然有人试图强加一些规则）而是自然进化的。而计算机科学中的语言通常指 <em>形式语言（Formal Language）</em>，是用 <strong>精确</strong> 的数学或机器可处理的公式 <strong>定义</strong> 的语言。编程语言就是一种形式语言，编程语言及其相关概念会在下文中详细解释。</p>
@@ -275,7 +276,7 @@ $$</p>
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 可以把 TOC 的研究内容与代数做一个对比：TOC 的研究对象是 <em>语言</em>，代数的研究对象是 <em>数</em>，在数上可以进行加减乘除以及更复杂的运算，而对于语言我们仍然可以进行其他定义形式的运算（比如对集合的运算并交补等，因为一个语言就是一个集合！）。事实上无论是集合及其操作还是语言及其操作，如果你了解过抽象代数（近世代数）这门学科，就马上能明白它们都是代数的一种，我们通常所说的代数只是代数中一个很小的以数作为研究对象的子集。</p>
 </blockquote>
-<p>在理论计算机科学中，形式语言常常被用来描述一类问题（Problem），比如：所有连通的无向图构成一个语言。</p>
+<p>在理论计算机科学中，形式语言常常被用来 <strong>描述</strong> 一类问题（Problem），比如：所有连通的无向图构成一个语言。</p>
 <p>这样的概念对于不了解 TOC 的人来说可能难以理解：<a href="https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)">图（Graph）</a> 作为图论中的一种数学结构或者计算机科学中的一种数据结构，它和字符串有什么关系呢？图如何能构成一个语言呢？（注意：形式语言中的元素被规定为字符串）</p>
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 如果你不了解什么是图（Graph），只需要知道它是像多面体、函数这样有数学定义的研究对象</p>
@@ -290,15 +291,83 @@ $$</p>
 <li><em>电子</em>：区别于 TCS 中研究前沿的量子计算机或生物计算机，这里讨论的是目前能够被制造出来并且广泛应用的电子计算机的硬件结构，其计算能力对应于计算复杂性理论中的确定性图灵机。简单来说，量子计算机与生物计算机的计算能力是现在的电子计算机的指数级别倍（是真正的指数级别！）</li>
 </ul>
 </blockquote>
+<h3 id="二进制硬件的选择">二进制：硬件的选择</h3>
+<p><em>进位制 或 进制（<strong>Positional notation</strong> or <strong>positional numeral system</strong>）</em> 是一种 <strong>数字系统</strong>，其中每一个 <em>数字</em> 被表示为一个 <strong>数符的序列</strong>，其 <strong>数字（Number）的值</strong> 是每一位 <strong>数符（Digit）的值</strong> 乘以由其所处位置（Position）确定的因子——<strong>位权（Weight）</strong> 得到的结果的总和，即：</p>
+<p>$$
+valueOfNumber = \sum_{i=0}^{n} (vauleOfDigit[i]*weight[i])
+$$</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 位置计数从 0 开始，而不是我们通常认为的 1，在计算机科学中计数普遍从 0 开始，当你开始编程的时候，就会对这一点深有体会。</p>
+</blockquote>
+<p>而你选择的 <em>基（Radix）</em> （即某某进制）决定了数符的数量与位权，$r$ 进制数的数符为 $0, 1, &hellip;, r-1$，其第 $i$ 位上的权重为 $r^i$。</p>
+<p>则进一步地上面的式子可以表示为：</p>
+<p>$$
+valueOfNumber_{(Radix)} = \sum_{i=0}^{n} (vauleOfDigit[i]*Radix^{i})
+$$</p>
+<p>这是一个以 Radix 为基的 $n+1$ 位 Radix 进制数的表示。当以 10 为基的时候，这就是我们中学学过的 <em>科学计数法</em></p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 为什么要使用进位制？如果你不使用进位制，需要为所有的数指定一个符号，但数是无限多的，你不可能为所有数都指定一个符号。而进位制可以让你使用有限的符号（即数符 Digit，其数量等于你使用的进位制的基 Radix）来表示无限多的数。</p>
+</blockquote>
+<hr>
+<p>一个 6 位二进制数的例子：</p>
+<p>$$
+101101_{(2)} = 1 * 2^5 + 0 * 2^4 + 1 * 2^3 + 1 * 2^2 + 0 * 2^1 + 1 * 2^0
+$$</p>
+<p>十进制数 $1125_{(10)}$：</p>
+<img src="/img/beginner/PosNotation.PNG" width = "300" height = "300" alt="进位制示意图" align=center />
+<p>如果把基换成 8 得到八进制数 $1125_{(8)}$：</p>
+<p>$$
+1125_{(8)} = 1 * 8^3 + 1 * 8^2 + 2 * 8^1 + 5 * 8^0
+$$</p>
+<p>实际上进位制表示直接给出了将其他进制数转换成十进制的方法，你可以以十进制的表示法计算八进制数 $1125_{(8)}$ 的值，看看它和十进制数 $1125_{(10)}$ 有什么区别？</p>
+<hr>
+<p>使用相同的数符排列来表示不同的数字（含义）——这就是 <strong>编码的一个例子</strong>。好比双方进行私钥加密通信，你们只有共同认定一个加密与解密规则才能成功进行通信，这就是所谓的 <strong>语义</strong>。当和别人讨论问题时同样，你们最好先确定双方对讨论的内容有一个共同的认知或者定义。</p>
+<img src="/img/beginner/say.PNG" width = "300" height = "300" alt="你这说的什么猪话" align=center />
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 你可能注意到这里为了方便不熟悉其他进制的同学理解，使用的基与数符的表述仍然是十进制的符号（比如上面的位权 $2^5$，严格来说应该表示为 $2^{101}$，因为 5 不是二进制的数符）。虽然表述不同，背后代表的意义是相同的。比如中文中的“奶牛”可以使用英文表述为 &ldquo;cow&rdquo;，但它们代指的是同一件事物。这对于理解各进制之间的转化是一关键。</p>
+</blockquote>
+<blockquote>
+<p>❓ <strong>QUESTION</strong>:上面的进位制表示看起来非常清楚，但是仍然有一些细微的问题：当数字的位数超过了其进制的基时，会出现 <strong>自身定义自身</strong> 的情况。比如 3 位二进制数 $111_{(2)} = 1 * 2^{10} + 1 * 2^{1} + 1 * 2^{0}$，请注意最高位上的位权：$2^{10}$，这里 10 同样使用了进位制表示。请思考：是定义出错了吗？如果是定义出错，如何修改定义使其正确？如果定义正确，如何解释这一现象？对这个问题的回答涉及到理论计算机科学与程序设计中一个十分重要的概念，如果你没有计算机基础，可以尝试上网搜索我给出的关键信息。</p>
+</blockquote>
+<blockquote>
+<p>⚠️️ <strong>NOTICE</strong>：另外请注意，上面的定义是对整数的定义，若考虑实数（既有整数部分又有小数部分），应该将定义更改成：
+$$
+valueOfNumber_{(Radix)} = \sum_{i=-m}^{n} (vauleOfDigit[i]*Radix^{i})
+$$
+其中 $n, m$ 都是正数（也可能是 $\inf$）。可以理解为，位权的幂次取自整数轴：$&hellip;, -3, -2, -1, 0, 1, 2, 3, &hellip;$</p>
+</blockquote>
+<p>为什么现代计算机采用的不是通常我们运算用的十进制而是二进制？计算机的理论模型与进位制并无关系，然而计算机的 <strong>实现</strong> 是一个 <strong>工程</strong> 问题，需要和真实的物理环境打交道。现代电子计算机用电路实现计算机模型，那就需要和物理电路打交道，需要考虑到 <strong>稳定性</strong>、实现复杂性、还有重要的 <strong>成本</strong>。</p>
+<p>尤其在长距离传输的场景下，比如军方通信、还有我们每天都在接触的网络传输，信号的干扰与衰减是一个严重的问题。因为 $r$ 进制数需要用 $r$ 个状态来表示，假如使用电压来表示状态，需要用 $r$ 个区间来分别表示，而信号的干扰与衰减可能造成“误码”的情况，比如发送的是 3，而因为电压衰减收到的却是 2，因此对于传输的信息进行检查与纠正是一个重要的研究领域。当 $r$ 变大时，出现误码的可能性与检查、纠正的成本都会增加，对电子器件的精度和稳定性要求都要提高，电路设计的复杂性也会提升。</p>
+<p>除了计算机使用的二进制，程序员也经常使用十六进制与八进制。因为 16 与 8 都是 2 的幂，在进制转换时非常方便，并且有时二进制数位数太多，而对应的十六进制数与八进制数位数少，方便浏览与计算。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 通常规定十六进制的数符为 0-9, A-F，其中 A-F 对应于十进制中的 10-15。</p>
+</blockquote>
 <h3 id="硬件从理论到实际从抽象到具体">硬件——从理论到实际，从抽象到具体</h3>
-<p>现代电子计算机中所采用的电子元器件是“大规模和超大规模集成电路”，<em>集成电路（Integrated Circuit，IC）</em> 是利用一些技术把一个电路中所需的电子元件及布线互连在一起，然後镶嵌在半导体基片上，然后再封裝，成为一个具有电路功能的微型结构，从而计算机可以从原来占用几间屋子的大型机演变为现在的个人计算机甚至嵌入式系统，比如手机。自从集成电路诞生以来，使用集成的晶体管数量来定义其规模，经历了集成电路——中规模集成电路——大规模集成电路——超大规模集成电路的发展过程（<del>所以工程师的语言真的很贫乏</del>）。</p>
+<p>现代电子计算机中所采用的电子元器件是“大规模和超大规模集成电路”。</p>
+<p><em>集成电路 或称 单片集成电路（<strong>Integrated Circuit</strong> or <strong>Monolithic Integrated Circuit</strong> ，also called <strong>IC</strong>、<strong>Chip</strong> or <strong>Microchip</strong>）</em> 是位于 <strong>半导体</strong> 材料（通常为硅）的一个小平板（“芯片”）上的 <strong>一组</strong> 电子电路。集成电路技术把一个电路中所需的电子元件及布线互连在一起，然后镶嵌在半导体基片上，然后再封裝（Packaging，可以理解为打包），成为一个具有电路功能的微型结构，这导致电路比由分立电子元件构成的电路更小、更快且更便宜——从而计算机可以从原来占用几间屋子的大型机演变为现在的个人计算机甚至嵌入式系统，比如手机。自从集成电路诞生以来，使用集成的晶体管数量来定义其规模，经历了集成电路——中规模集成电路——大规模集成电路——超大规模集成电路的发展过程（<del>工程师的语言如此贫乏</del>）。</p>
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 你可以认为集成电路既是一个“小型”电路又是一个“大型”电路，“小型”是指其所占物理空间很小，“大型”是指其中的电路（逻辑上）非常复杂</p>
 </blockquote>
-<h4 id="为什么是二进制">为什么是二进制？</h4>
-<p>为什么现代计算机采用的不是通常我们运算用的十进制？</p>
-<h4 id="逻辑运算">逻辑运算</h4>
-<p>计算机中的基本电子元件所能实际执行的运算即 <strong>基本逻辑运算</strong>：与、或、非等。能执行基本逻辑运算的电路，也被称为“门（Gate）”，是现代电子计算机的 building block ，就像建造大楼的砖块。</p>
+<blockquote>
+<p>🔆 <strong>HINT</strong>：请注意这里提到的“封装”，“封装”即把一些东西打包，从而可以不关心其内部是如何实现的，仅关心它对外提供的接口——如何输入与输出什么、可以重复使用这一模块而不需要每次都从头实现。“封装”这一思想贯彻于整个计算机科学中，从硬件到软件，是计算机科学能够提高工作效率、减少重复劳动的关键之一。</p>
+</blockquote>
+<p>下面是集成电路的实物照片，可以看到在芯片周围排列有长长的管脚，被称为 <em>引脚（Pin）</em>，它们就是封装好的集成电路的对外接口，用于输入输出。</p>
+<table><tr>
+<td>
+<img src="/img/beginner/Microchips.jpg" width = "200" height = "150" alt="Microchips" align=center />
+</td>
+<td>
+<img src="/img/beginner/Chip-AD570JD.jpg" width = "200" height = "150" alt="Chip" align=center />
+</td>
+</tr></table>
+<p>想要了解更多历史，可以参考 <a href="https://en.wikipedia.org/wiki/History_of_computing_hardware">History of computing hardware</a> 或 <a href="https://www.wikiwand.com/zh-sg/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A1%AC%E9%AB%94%E6%AD%B7%E5%8F%B2">计算机硬件历史</a></p>
+<p>如果你是计算机与电子电气相关专业的同学，电路三件套（电路原理、模拟电子技术、数字电子技术）会带你走向<del>挂科</del>电子电路的神奇世界。</p>
+<h4 id="快速计算算术与逻辑单元">快速计算——算术与逻辑单元</h4>
+<p>我们首先从可以执行 <strong>基本逻辑运算</strong> 的 <em>门（Gate）电路 或称 逻辑门（Logic Gate）电路</em> 开始介绍。通常而言 <em>基本逻辑运算</em> 指的是三种逻辑运算：<strong>与</strong>（同时为真）、<strong>或</strong>（至少一个为真）、<strong>非</strong>（和你反着来）。</p>
+<p>门电路是现代电子计算机的 building blocks ，就像建造大楼的砖块。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 逻辑运算的变量值仅为真（True）和假（False）两种真值（Truth Values），其操作数为 True 或 False 中的一种，结果也为 True 或 False 中的一种。做一个对比，（定义在自然数范围上的）算术运算的变量值为自然数，其操作数为一个自然数，结果也为一个自然数。如果你了解抽象代数，可以知道真值集合与逻辑运算同样构成一个代数系统，称为逻辑代数或布尔代数。</p>
+</blockquote>
 <p>下面是一个 <em>非门（Not Gate）</em> （又称反相器，Inverter）的例子：</p>
 <p>这是非门的电路符号，像这种约定俗成的符号就是工程师的“语言”，即使两个工程师说不同的（自然）语言，它们同样可以通过电路图（或工程图）来“交流”。这种约定在日常生活中也很常见，<del>比如你看到 &ldquo;yysy&rdquo; 就知道这是“有一说一”的意思</del>（在初中物理的电路中你也见过，比如用小方块代表电阻，两条等长的竖线表示电容）</p>
 <img src="/img/beginner/NOT_gate.png" width = "200" height = "150" alt="NOT gate symbol" align=center />
@@ -343,22 +412,54 @@ $$</p>
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 在二进制计算机中 0 和 1 可以被用来代表逻辑值 False 和 True，但是表示 <strong>数值</strong> 的 0 和 1 与表示 <strong>逻辑值</strong> 的 0 和 1 是完全不同的东西！而在计算机的具体电路中，又是使用高电平（低电平）和低电平（高电平）来表示 0 和 1 的。</p>
 </blockquote>
-<p>上面的非门符号表示的是一个抽象的概念，真值表只是描述了它的行为，而其具体电路 <strong>实现</strong> （了解即可）可能有多种，比如最简单的开关电路（就是初中物理实验用的那种手动开关）</p>
+<p>上面的非门符号表示的是一个抽象的概念，真值表只是描述了非门的行为，定义了非门的输入输出接口规范，而其具体电路 <strong>实现</strong> （看看就行）可能有多种，比如最简单的开关电路（就是初中物理实验用的那种手动开关）</p>
 <img src="/img/beginner/NOT_simple.png" width = "150" height = "100" alt="开关实现的非门" align=center />
 <p>然而在计算机的电路中我们不可能手动进行输入，集成电路的微型结构也不允许。我们需要可以通过其他电路产生的输出（然后被输入到反相器）得到结果的实现方式，也即通过高低电平驱动<del>而非人工驱动</del>，下面有一些实际中会采用的电路，它们都应用了其他电子元器件比如 NMOS、三极管的特性。</p>
-<p>使用 NMOS 实现的非门：</p>
-<img src="/img/beginner/NOT_NMOS.png" width = "100" height = "50" alt="NMOS 实现的非门" align=center />
-<p>使用三极管实现的非门：</p>
-<img src="/img/beginner/NOT_Transistor.png" width = "200" height = "150" alt="三极管实现的非门" align=right/>
-<p>如果你是计算机与电子电气相关专业的同学，必修课电路三连（电路基础、模拟电路、数字电路）会带你深入了解相关内容（<del>走向深渊</del>）</p>
-<!--
-https://zh.wikipedia.org/wiki/图_(数学)
+<table><tr>
+    <td>
+        <img src="/img/beginner/NOT_NMOS.png" width = "150" height = "150" alt="NMOS 实现的非门" align=center />
+        <p></p>
+        <span>使用 NMOS 实现的非门</span>
+    </td>
+        <td><img src="/img/beginner/NOT_Transistor.png" width = "250" height = "250" alt="三极管实现的非门" align=center />
+        <p></p>
+        <span>使用三极管实现的非门</span>
+    </td>
+</tr></table>
+<blockquote>
+<p>🔆 <strong>HINT</strong>：请注意 <strong>接口规范</strong> 与 <strong>具体实现</strong> 的区别，与封装这一思想同样被广泛应用于计算机科学的各个领域。同一规范（标准）可能有很多不同的实现，比如上面的逻辑门，其它的例子有编程语言，同一编程语言有不同实现方式的编译器（或解释器）。接口规范只告诉你“做什么”，而不会告诉你“怎么做”。</p>
+</blockquote>
+<p>使用基本的逻辑门，我们可以构造复杂的系统实现更复杂的逻辑运算乃至 <strong>算术运算</strong> 与其他功能，上面提到的集成电路上就有大量的门电路。</p>
+<p>计算机系统里速度最快的 <em>中央执行单元（Central Processing Unit, CPU）</em> 中负责执行各种逻辑运算与算术运算的部分就是 <em>算术逻辑单元（arithmetic logic unit，ALU）</em>，大量复杂的运算最终都被分解为在特定计算机系统中规定好的这些基本运算（属于计算机指令系统的一部分，有关指令的内容会在下文作详细介绍），而 ALU 就是由门电路搭建的。</p>
+<p>下面是一个逻辑门实现基本算术运算的例子：一位全加器，其功能是输入只有一位的两个二进制数 $A$ 与 $B$ 相加，与低位来的一位进位 $C_{in}$，输出该位的计算结果 $S$ 与应该向高位的进位 $C_{out}$。把 $n$ 个一位全加器依次相连，每一个一位全加器向高位的进位输出 $C_{out}$ 连接到下一个一位全加器的低位进位输入 $C_{in}$，就可以实现两个 $n$ 位二进制数的相加。实际上这就是小学学过的加法计算过程。而使用门电路，你还可以设计三个二进制数相加、四个二进制数相加的电路（但必须是固定个数的二进制数相加！）</p>
+<table><tr>
+    <td>
+        <img src="/img/beginner/1bit_FullAdder_Symbol.PNG" width = "250" height = "250" alt="1 位全加器的符号" align=center />
+        <p></p>
+        <span>1 位全加器的符号</span>
+    </td>
+        <td><img src="/img/beginner/1bit_FullAdder_Circuit.PNG" width = "420" height = "420" alt="1 位全加器的电路" align=center />
+        <p></p>
+        <span>逻辑门实现的 1 位全加器的电路图</span>
+    </td>
+</tr></table>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 为什么可以使用基本逻辑运算的门电路来实现算术运算呢？一个原因是上面提到的计算机使用 1 和 0 分别代表 True 和 False，从而同样的 1 和 0 在逻辑运算中可以被看做逻辑值，而在算术运算中可以被看做数值（不同语义！）。而另一个原因需要你了解逻辑代数与数字电路的基础知识。总之你现在只需要知道，逻辑运算与算术运算的输入输出值使用的符号形式（0 和 1）是相同的，而其中复杂的实现交给工程师就好了。</p>
+</blockquote>
+<p>一台主频为 $2 GHz$ 的计算机，每秒最多能够进行的基本（逻辑与算术）运算次数是 20 亿次。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 在 Windows 操作系统上右击开始图标，选择 Windows PowerShell，在弹出的命令行界面中执行 <code>systeminfo</code> 命令，可以在处理器这一项中找到你的电脑 CPU 主频。</p>
+</blockquote>
+<p>通常由各种逻辑门构建起来的电路被称为 <em>组合电路（Combinational Circuit）</em>，其特点是输出 <strong>即时响应</strong> 输入（逻辑上，工程中会有传播延迟的情况，请参考电磁波的传播速度）与 <strong>无记忆性</strong>。</p>
+<p>然而计算理论告诉我们，无记忆的机器与我们希望的机器（图灵机——理论上可以解决所有可计算问题的机器，其与组合电路在计算理论中对应的有限状态自动机的区别之一就是是否能够“记忆”）相差甚远，甚至不能实现一些很简单的任务，比如：</p>
+<p><strong>把 n 个数相加，这里 n 也是待输入的变量（而不是某个固定的数）！</strong></p>
+<p><strong>存储</strong> 可以解决这个问题，我们离梦想中的图灵机更进一步了。</p>
+<h4 id="存储">存储</h4>
+<!--实际的计算机存储是有限的
 
-https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)
+`https://zh.wikipedia.org/wiki/图_(数学)`
 
-%E5%9B%BE_(%E6%95%B0%E5%AD%A6)
-
--->
+`https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)`-->
 <h2 id="编程实践是学习计算机的最佳途径">编程：实践是学习计算机的最佳途径</h2>
 <p>自然语言是用于人与人之间交流的语言，你也可以认为编程语言就是用于人与计算机之间交流的语言。</p>
 <p>特定编程语言对应的 <em>编译器</em> 或 <em>解释器</em>（相关概念在下文中会进行解释）只是一个分析其编程语言语法的 <strong>程序</strong>，这样的程序无法理解语言的语义（所以有时你会发现编译通过而调试结果与预期不符，因为你可能打错了什么字符，但有些“智能”的编译器会在一些问题上给出警告），在自然语言中你可能使用一些不符合语言语法的表述（<del>比如倒装句</del>），然而对方仍然能够理解你的意思。但编译器可不行！如果你的源代码文件不符合编程语言的语法，编译器只会报错。</p>
@@ -401,7 +502,7 @@ https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)
 </div><footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/">计算理论</a>
-          <a href="/tags/%E7%BC%96%E7%A0%81/">编码</a>
+          <a href="/tags/%E7%A1%AC%E4%BB%B6/">硬件</a>
           <a href="/tags/%E8%AF%AD%E8%A8%80/">语言</a>
           </div>
       <nav class="post-nav">
@@ -420,6 +521,14 @@ https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)
   
 
   
+    <script src="https://utteranc.es/client.js"
+            repo="exitance/exitance.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
 
       </div>
     </main>
