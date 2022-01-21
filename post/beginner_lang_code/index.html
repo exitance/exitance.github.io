@@ -49,7 +49,7 @@
 <meta itemprop="name" content="0. 语言与编码">
 <meta itemprop="description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言"><meta itemprop="datePublished" content="2022-01-17T22:07:24+08:00" />
 <meta itemprop="dateModified" content="2022-01-17T22:07:24+08:00" />
-<meta itemprop="wordCount" content="9633">
+<meta itemprop="wordCount" content="15412">
 <meta itemprop="keywords" content="计算理论,硬件,语言," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0. 语言与编码"/>
 <meta name="twitter:description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言"/>
@@ -132,8 +132,8 @@
         <div class="post-category">
             <a href="/categories/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/"> 写给小白的计算机科学与深度学习入门 </a>
             </div>
-          <span class="more-meta"> 9633 words </span>
-          <span class="more-meta"> 20 mins read </span>
+          <span class="more-meta"> 15412 words </span>
+          <span class="more-meta"> 31 mins read </span>
         
       </div>
     </header>
@@ -154,8 +154,15 @@
         </li>
         <li><a href="#编码理解语义">编码：理解语义</a>
           <ul>
+            <li><a href="#信息--位--上下文">信息 = 位 + 上下文</a></li>
             <li><a href="#二进制硬件的选择">二进制：硬件的选择</a></li>
-            <li><a href="#硬件从理论到实际从抽象到具体">硬件——从理论到实际，从抽象到具体</a></li>
+          </ul>
+        </li>
+        <li><a href="#硬件从理论到实际从抽象到具体">硬件——从理论到实际，从抽象到具体</a>
+          <ul>
+            <li><a href="#基本运算算术逻辑单元">基本运算——算术逻辑单元</a></li>
+            <li><a href="#存储器层次结构">存储器层次结构</a></li>
+            <li><a href="#控制器与指令系统计算机的语言">控制器与指令系统：计算机的语言</a></li>
           </ul>
         </li>
         <li><a href="#编程实践是学习计算机的最佳途径">编程：实践是学习计算机的最佳途径</a>
@@ -283,14 +290,72 @@ $$</p>
 </blockquote>
 <p>为了理解这一内容，下面要介绍计算机科学中一个重要的概念—— <strong>编码</strong></p>
 <h2 id="编码理解语义">编码：理解语义</h2>
-<p>编码的概念在计算机的世界中随处可见，什么是编码？为什么要编码？如何编码？我们先不着急解释编码的概念，而是从工程实践的角度来了解一下计算机的组成—— <strong>现代电子计算机的硬件结构</strong> 。</p>
+<p>编码的概念在计算机的世界中随处可见，什么是编码？为什么要编码？如何进行编码？</p>
+<h3 id="信息--位--上下文">信息 = 位 + 上下文</h3>
+<p><em>编码（Encoding, Coding）</em> 在不同的领域有多种可能的解释，在本文中定义为将一系列抽象的概念分别以一些符号的不同排列来表示。<em>解码（Decoding）</em> 是将符号的序列按照制定的编码规则转换回其指代含义的一个过程，即编码的逆过程。而一般我们会用平时习惯使用的自然语言来表达这些抽象概念，但它们最终代表的都是同一个抽象概念。</p>
+<p>好比双方进行私钥加密通信，你们只有共同认定一个加密与解密规则才能成功进行通信，这就是所谓的 <strong>语义</strong>。使用的编码规则不同，就无法理解对方表达的语义。</p>
+<p>在著名的《深入理解计算机系统》（<a href="http://csapp.cs.cmu.edu/3e/home.html">CSAPP</a>）这本书中的第一章开头提到 <strong>“信息就是位 + 上下文”</strong>，在这里我们可以把 <strong>位</strong> 就理解为 上面说的 <strong>符号</strong>，<strong>上下文</strong> 理解为上面所说的 <strong>排列</strong>，而 <strong>信息</strong> 就是我们要表达的 <strong>语义</strong>。（上下文就是语文阅读分析中经常出现的那个意思）</p>
+<p>下面是一个使用文本编辑器（UTF-8 编码，一种字符编码系统）打开 WeChat.exe （就是你在电脑上登录微信时双击的那个可执行文件）的例子：文本编辑器使用 UTF-8 编码，即一种 <strong>字符的编码</strong> 去解释一个可执行文件的内容，即该系统上二进制 <strong>指令的编码</strong>，所以输出了乱码。有时你打开一些文件时出现乱码，也可能是文件使用的和打开方式使用的字符编码方式不同。</p>
+<table><tr>
+    <td>
+      <img src="/img/beginner/editWeChat.PNG" width = "390" height = "390" alt="使用文本编辑器打开 WeChat.exe" align=center />
+      <p></p>
+      <span>使用文本编辑器打开 WeChat.exe 的结果</span>
+    </td>
+    <td>
+      <img src="/img/beginner/say.PNG" width = "400" height = "400" alt="你这说的什么猪话" align=center />
+      <p></p>
+      <span></span>
+    </td>
+</tr></table>
+<p>通常来说制定一个编码系统，你只需要简单的几步：</p>
+<ol>
+<li>确定你要编码的 <strong>对象</strong>，比如英文字母、标点符号、emoji 表情等。当然，只要你的编码方式选的好，在之后还可以在这个集合中加入新的对象。</li>
+<li>确定你的编码使用的 <strong>符号集</strong>，这个集合是有限的。</li>
+<li>为每个对象指定一个 <strong>符号的排列</strong>，即它的编码。</li>
+</ol>
+<p>当然，具体的实现过程并不容易，你需要学习有关的编码理论（Coding theory）才能设计出实用的、无歧义的编码系统。</p>
+<p>上面的 <strong>符号集</strong> 听起来很像语言定义中使用的 <strong>字母表</strong>，而 <strong>符号的排列</strong> 听上去也很像语言定义中使用的 <strong>字符串</strong>，实际上你可以认为它们就是相同的概念。现在我们可以来解释在上一部分留下的问题了——图（Graph）作为一个抽象的数学概念，我们可以指定一个编码规则，把每一个图（Graph）都表示为一个 <strong>字符串</strong>！这样，其中属于无向图（图集合的一个子集）的那部分对应的 <strong>编码</strong> 或者说 <strong>字符串</strong> 的集合当然构成一个语言！</p>
+<p>像这样的 <strong>YES-NO 问题（判定问题）</strong> 都可以通过编码成字符串被表示成语言的形式，因为元素与集合的 <strong>属于（YES）</strong> 与 <strong>不属于（NO）</strong> 关系与判定问题有着天然的对应。因此语言可以用于 <strong>描述</strong> （判定）问题。</p>
+<p>下面是计算机中的一些编码实例：</p>
+<hr>
+<p>你在 Web 浏览器如 IE、Google Chorme 中访问某个网站输入的“网址”被称为 <strong>统一资源定位符（Uniform Resource Locator，URL）</strong>。它被用于定位（<strong>L</strong> ocate）网络资源（<strong>R</strong> esource），所谓网络资源，其实是存放在距离你很远的 <strong>服务器</strong> 上的 <strong>各种文件</strong>，它们可以通过 URL 这样统一（<strong>U</strong> niform）的访问格式来被访问（根据网站设计，这个 URL 路径可能与该文件实际在服务器上的文件路径有所不同，但形式是相同的）。无论是浏览网页，还是下载文件，你都是用 URL 来对这些资源进行访问的。</p>
+<p>下面展示了 URL 的基本结构，其中 Protocol 是 <em>网络协议（Internet Protocol）</em>，它是一组 <strong>通信规则</strong>，规定了通信时信息必须采用的 <strong>格式</strong> 和这些格式的 <strong>意义</strong>。简单来讲，就是 <strong>为了在网络中交换信息，需要遵守的一组规则</strong>。（网络协议包括了）在这个例子中使用的是 HTTPS 协议，也是我们网上冲浪时最常用的协议：超文本传输安全协议（Hypertext Transfer Protocol Secure）。Hostname 是 主机名，就是你要访问的资源所在服务器被分配的域名。Filename 是文件名（更普遍的情况是文件路径 Filepath，类似于你的计算机本地磁盘上的文件路径），也就是你要访问的 <strong>资源</strong> 在此服务器上的路径。通常，你只需要在地址栏中输入域名和资源路径，Web 浏览器会自动为你填充合适的协议。</p>
+<img src="/img/beginner/url_structure.png" width = "400" height = "400" alt="url 的结构" align=center />
+<p>实际上你也可以在 Web 浏览器中访问本机上的文件，<del>尽管通常不会有人这样做</del>，只需要在本地文件路径前添加协议 <code>file://</code>，比如 <code>file://C:/Users/Public</code>。或者直接输入本地文件路径，就如上文所述，现在的浏览器一般会在资源路径前自动为你添加合适的协议。</p>
+<p>浏览器的地址栏可以显示中文，这是维基百科图（Graph）词条的 URL，在浏览器中打开它时，你会看到其中含有中文：</p>
+<img src="/img/beginner/encode_url_example.PNG" width = "400" height = "400" alt="地址栏中包括中文的 url" align=center />
+<p>下面来做一个实验：使用浏览器打开 <a href="https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)">维基百科图词条的 URL</a>（直接点击蓝字），打开后再复制地址栏中的内容——</p>
+<ol>
+<li>如果将地址栏的 URL 包括协议部分全部复制，就会发生转码，再重新粘贴到地址栏中，你会看到：
+<code>https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)</code>
+看起来像是乱码，不过仔细观察，你很容易发现其中每一个汉字都相应地变成了连续 3 个 <code>%[0-F][0-F]</code> 的形式，其中<code>[0-F]</code> 是十六进制表示使用的数字 0-9 和字母 A-F（代表十进制中 10-15），简单来讲就是一个百分号 <code>%</code> 跟着两个数字的格式。其实这才是 URL 里中文的真实格式，你在浏览器地址栏中看到的中文是解码后的格式，便于人类阅读。因为 URL 设计之初只使用了英文字母、阿拉伯数字和某些标点符号。如果要显示其他符号和文字，则需要使用这些原有的符号来表示其他的符号和文字，这就是 <strong>编码的一个例子</strong>。</li>
+<li>如果只复制不包括协议的部分，结果就是你看到的字符串，比如：
+<code>图_(数学)</code></li>
+</ol>
 <blockquote>
-<p>💡 <strong>NOTE</strong>: 请注意这里需要特别关注限定词：</p>
-<ul>
-<li><em>现代</em>：历史上的计算机可能采用的是十进制而非二进制，虽然十进制同样可以用于编码与计算，但是现代计算机均采用 <strong>二进制</strong>（为什么？），下面的讨论也基于二进制。并且现代计算机采用冯诺依曼架构，其核心思想是 <strong>存储程序</strong>，这是实现计算 <strong>自动化</strong> 的关键。</li>
-<li><em>电子</em>：区别于 TCS 中研究前沿的量子计算机或生物计算机，这里讨论的是目前能够被制造出来并且广泛应用的电子计算机的硬件结构，其计算能力对应于计算复杂性理论中的确定性图灵机。简单来说，量子计算机与生物计算机的计算能力是现在的电子计算机的指数级别倍（是真正的指数级别！）</li>
-</ul>
+<p>😛 <strong>JUST FOR FUN</strong>: 域名也可以是中文，在浏览器地址栏中输入 <code>世界一流大学.com</code>，看看你会去到什么网站。</p>
 </blockquote>
+<p>刚开始接触编程的人往往会遇到一个问题，分不清代码中的：</p>
+<ul>
+<li><code>'2'</code></li>
+<li><code>&quot;2&quot;</code></li>
+<li><code>2</code></li>
+</ul>
+<p>这里使用了 C 语言中的表示方法，约定用单引号围起来的 <code>'2'</code> 是 <strong>字符</strong> 2，用双引号围起来的 <code>&quot;2&quot;</code> 是 <strong>字符串</strong> 2，而单独一个 <code>2</code> 就是 <strong>（十进制）数字</strong> 2。字符串由字符序列组成，由于目前我们讨论的是编码，所以这里只关心计算机中表示 <strong>字符与数字的区别</strong>。</p>
+<p>在二进制计算机中，它们 <strong>最终</strong> 都是使用 0 和 1 来表示的，但编码方法不同，对 <strong>数字</strong> 而言是直接使用 0 和 1—— <strong>二进制表示的数字</strong>，而对于带有正负号的数字，计算机有特别的编码规则，用 0 和 1 来表示正号和负号，但不是简单的在数字前加上 0 和 1，这里就不作详细介绍了。而 <strong>字符</strong> 是使用 <strong>数字的一些组合</strong> 来表示的，比如一个简单的实现方式是把需要显示的字符排个队，按顺序为每一个字符指定一个数字。由于计算机中用 0 和 1 来编码数字，所以最终它们也是由 0 和 1 来表示的，但数字与字符用的编码符号不同。数字 2 代表了这个数字的抽象含义，而 字符 2 是数字 2 的一种具体表示形式，你也可以使用罗马数字符号 Ⅱ 来表示这个相同的抽象含义。如果使用 ASCII 编码，计算机中使用二进制的数字 50 来表示字符 2 ，而数字 2 就是二进制的数字 2。通常，计算机中将字符用于显示、输入输出、文本文件等，而数字用于执行计算（你在计算机中看到的“数字”，实际都是字符！计算机中真正的数字你是看不见的）。</p>
+<p>计算机中用于表示字符的编码有很多种，除了被广泛使用的 ASCII，还有 <strong>Unicode</strong>——它编码了世界上大部分的文字系統。上面提到的 UTF-8 就是 Unicode 标准的一种实现（考虑了在二进制计算机中最终用 0 和 1 来表示的相关问题，比如存储空间）。Unicode 甚至可以编码 emoji 表情，下面是一些符号对应的 Unicode 编码（十六进制表示）：</p>
+<ul>
+<li>K：004B</li>
+<li>文：6587</li>
+<li>😍：1F60D</li>
+</ul>
+<p>完整的 Unicode 编码可以在 <a href="https://unicode-table.com">Unicode Table</a> 上找到。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 在语言的字母表举例中，也使用了字母、汉字与 emoji 表情作为字母表中字符的例子，把它们看作一个独立的、抽象的符号，是 <strong>“不可分割&rdquo;</strong> 的。而在这里提到的字母、汉字与 emoji 表情，是为了在计算机中表示、显示它们而使用一些其他符号对其编码的例子，上面用数字对字母、汉字与 emoji 表情进行编码，这里数字就变成了编码的符号，而在二进制计算机中数字又是由 0 和 1 来进行编码的，如果讨论数字的编码，0 和 1 又变成了编码的符号。我们讨论的究竟是编码的 <strong>对象</strong>？还是用于编码的 <strong>符号</strong>？应该根据讨论的场景而定。编码是一种思维方式，对象是抽象的，符号是具体的，但在其他场景中，对象也可以变成具体的符号。</p>
+</blockquote>
+<hr>
+<p>我们知道计算机使用的是二进制，计算机中所有的编码最终也都是用 0 和 1 表示的。编码本身与进位制无关，那为什么计算机使用的是二进制而不是我们熟悉的十进制？</p>
 <h3 id="二进制硬件的选择">二进制：硬件的选择</h3>
 <p><em>进位制 或 进制（<strong>Positional notation</strong> or <strong>positional numeral system</strong>）</em> 是一种 <strong>数字系统</strong>，其中每一个 <em>数字</em> 被表示为一个 <strong>数符的序列</strong>，其 <strong>数字（Number）的值</strong> 是每一位 <strong>数符（Digit）的值</strong> 乘以由其所处位置（Position）确定的因子——<strong>位权（Weight）</strong> 得到的结果的总和，即：</p>
 <p>$$
@@ -300,7 +365,7 @@ $$</p>
 <p>💡 <strong>NOTE</strong>: 位置计数从 0 开始，而不是我们通常认为的 1，在计算机科学中计数普遍从 0 开始，当你开始编程的时候，就会对这一点深有体会。</p>
 </blockquote>
 <p>而你选择的 <em>基（Radix）</em> （即某某进制）决定了数符的数量与位权，$r$ 进制数的数符为 $0, 1, &hellip;, r-1$，其第 $i$ 位上的权重为 $r^i$。</p>
-<p>则进一步地上面的式子可以表示为：</p>
+<p>为避免歧义，通常为数字加一个下标，括号中写上基，则进一步地上面的式子可以表示为：</p>
 <p>$$
 valueOfNumber_{(Radix)} = \sum_{i=0}^{n} (vauleOfDigit[i]*Radix^{i})
 $$</p>
@@ -321,8 +386,7 @@ $$</p>
 $$</p>
 <p>实际上进位制表示直接给出了将其他进制数转换成十进制的方法，你可以以十进制的表示法计算八进制数 $1125_{(8)}$ 的值，看看它和十进制数 $1125_{(10)}$ 有什么区别？</p>
 <hr>
-<p>使用相同的数符排列来表示不同的数字（含义）——这就是 <strong>编码的一个例子</strong>。好比双方进行私钥加密通信，你们只有共同认定一个加密与解密规则才能成功进行通信，这就是所谓的 <strong>语义</strong>。当和别人讨论问题时同样，你们最好先确定双方对讨论的内容有一个共同的认知或者定义。</p>
-<img src="/img/beginner/say.PNG" width = "300" height = "300" alt="你这说的什么猪话" align=center />
+<p>使用相同的数符排列来表示不同的数字（含义）——这也是 <strong>编码的一个例子</strong>。这也是为什么要通过为数字下标加上进制来避免歧义，即指定了编码和解码的方式。通常不加下标表示默认使用十进制。</p>
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 你可能注意到这里为了方便不熟悉其他进制的同学理解，使用的基与数符的表述仍然是十进制的符号（比如上面的位权 $2^5$，严格来说应该表示为 $2^{101}$，因为 5 不是二进制的数符）。虽然表述不同，背后代表的意义是相同的。比如中文中的“奶牛”可以使用英文表述为 &ldquo;cow&rdquo;，但它们代指的是同一件事物。这对于理解各进制之间的转化是一关键。</p>
 </blockquote>
@@ -336,13 +400,21 @@ valueOfNumber_{(Radix)} = \sum_{i=-m}^{n} (vauleOfDigit[i]*Radix^{i})
 $$
 其中 $n, m$ 都是正数（也可能是 $\inf$）。可以理解为，位权的幂次取自整数轴：$&hellip;, -3, -2, -1, 0, 1, 2, 3, &hellip;$</p>
 </blockquote>
-<p>为什么现代计算机采用的不是通常我们运算用的十进制而是二进制？计算机的理论模型与进位制并无关系，然而计算机的 <strong>实现</strong> 是一个 <strong>工程</strong> 问题，需要和真实的物理环境打交道。现代电子计算机用电路实现计算机模型，那就需要和物理电路打交道，需要考虑到 <strong>稳定性</strong>、实现复杂性、还有重要的 <strong>成本</strong>。</p>
+<p>为什么现代计算机采用的不是通常我们运算用的十进制而是二进制？虽然计算机的理论模型与进位制并无关系，然而计算机的 <strong>实现</strong> 是一个 <strong>工程</strong> 问题，需要和真实的物理环境打交道。现代电子计算机用电路实现计算机模型，那就需要和物理电路打交道，需要考虑到 <strong>稳定性</strong>、实现复杂性、还有重要的 <strong>成本</strong>。</p>
 <p>尤其在长距离传输的场景下，比如军方通信、还有我们每天都在接触的网络传输，信号的干扰与衰减是一个严重的问题。因为 $r$ 进制数需要用 $r$ 个状态来表示，假如使用电压来表示状态，需要用 $r$ 个区间来分别表示，而信号的干扰与衰减可能造成“误码”的情况，比如发送的是 3，而因为电压衰减收到的却是 2，因此对于传输的信息进行检查与纠正是一个重要的研究领域。当 $r$ 变大时，出现误码的可能性与检查、纠正的成本都会增加，对电子器件的精度和稳定性要求都要提高，电路设计的复杂性也会提升。</p>
 <p>除了计算机使用的二进制，程序员也经常使用十六进制与八进制。因为 16 与 8 都是 2 的幂，在进制转换时非常方便，并且有时二进制数位数太多，而对应的十六进制数与八进制数位数少，方便浏览与计算。</p>
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 通常规定十六进制的数符为 0-9, A-F，其中 A-F 对应于十进制中的 10-15。</p>
 </blockquote>
-<h3 id="硬件从理论到实际从抽象到具体">硬件——从理论到实际，从抽象到具体</h3>
+<p>介绍完了一些简单的理论，现在我们从工程实践的角度来了解一下计算机的组成—— <strong>现代电子计算机的硬件结构</strong> 。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 请注意这里需要特别关注限定词：</p>
+<ul>
+<li><em>现代</em>：历史上的计算机可能采用的是十进制而非二进制，虽然十进制同样可以用于编码与计算，但是现代计算机均采用 <strong>二进制</strong>，下面的讨论也基于二进制。并且现代计算机采用冯诺依曼架构，其核心思想是 <strong>存储程序</strong>，这是实现计算 <strong>自动化</strong> 的关键（为什么？）。</li>
+<li><em>电子</em>：区别于 TCS 中研究前沿的量子计算机或生物计算机，这里讨论的是目前能够被制造出来并且广泛应用的电子计算机的硬件结构，其计算能力对应于计算复杂性理论中的确定性图灵机。简单来说，量子计算机与生物计算机的计算能力是现在的电子计算机的指数级别倍（是真正的指数级别！）</li>
+</ul>
+</blockquote>
+<h2 id="硬件从理论到实际从抽象到具体">硬件——从理论到实际，从抽象到具体</h2>
 <p>现代电子计算机中所采用的电子元器件是“大规模和超大规模集成电路”。</p>
 <p><em>集成电路 或称 单片集成电路（<strong>Integrated Circuit</strong> or <strong>Monolithic Integrated Circuit</strong> ，also called <strong>IC</strong>、<strong>Chip</strong> or <strong>Microchip</strong>）</em> 是位于 <strong>半导体</strong> 材料（通常为硅）的一个小平板（“芯片”）上的 <strong>一组</strong> 电子电路。集成电路技术把一个电路中所需的电子元件及布线互连在一起，然后镶嵌在半导体基片上，然后再封裝（Packaging，可以理解为打包），成为一个具有电路功能的微型结构，这导致电路比由分立电子元件构成的电路更小、更快且更便宜——从而计算机可以从原来占用几间屋子的大型机演变为现在的个人计算机甚至嵌入式系统，比如手机。自从集成电路诞生以来，使用集成的晶体管数量来定义其规模，经历了集成电路——中规模集成电路——大规模集成电路——超大规模集成电路的发展过程（<del>工程师的语言如此贫乏</del>）。</p>
 <blockquote>
@@ -362,7 +434,7 @@ $$
 </tr></table>
 <p>想要了解更多历史，可以参考 <a href="https://en.wikipedia.org/wiki/History_of_computing_hardware">History of computing hardware</a> 或 <a href="https://www.wikiwand.com/zh-sg/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A1%AC%E9%AB%94%E6%AD%B7%E5%8F%B2">计算机硬件历史</a></p>
 <p>如果你是计算机与电子电气相关专业的同学，电路三件套（电路原理、模拟电子技术、数字电子技术）会带你走向<del>挂科</del>电子电路的神奇世界。</p>
-<h4 id="快速计算算术与逻辑单元">快速计算——算术与逻辑单元</h4>
+<h3 id="基本运算算术逻辑单元">基本运算——算术逻辑单元</h3>
 <p>我们首先从可以执行 <strong>基本逻辑运算</strong> 的 <em>门（Gate）电路 或称 逻辑门（Logic Gate）电路</em> 开始介绍。通常而言 <em>基本逻辑运算</em> 指的是三种逻辑运算：<strong>与</strong>（同时为真）、<strong>或</strong>（至少一个为真）、<strong>非</strong>（和你反着来）。</p>
 <p>门电路是现代电子计算机的 building blocks ，就像建造大楼的砖块。</p>
 <blockquote>
@@ -417,13 +489,14 @@ $$
 <p>然而在计算机的电路中我们不可能手动进行输入，集成电路的微型结构也不允许。我们需要可以通过其他电路产生的输出（然后被输入到反相器）得到结果的实现方式，也即通过高低电平驱动<del>而非人工驱动</del>，下面有一些实际中会采用的电路，它们都应用了其他电子元器件比如 NMOS、三极管的特性。</p>
 <table><tr>
     <td>
-        <img src="/img/beginner/NOT_NMOS.png" width = "150" height = "150" alt="NMOS 实现的非门" align=center />
-        <p></p>
-        <span>使用 NMOS 实现的非门</span>
+      <img src="/img/beginner/NOT_NMOS.png" width = "150" height = "150" alt="NMOS 实现的非门" align=center />
+      <p></p>
+      <span>使用 NMOS 实现的非门</span>
     </td>
-        <td><img src="/img/beginner/NOT_Transistor.png" width = "250" height = "250" alt="三极管实现的非门" align=center />
-        <p></p>
-        <span>使用三极管实现的非门</span>
+    <td>
+      <img src="/img/beginner/NOT_Transistor.png" width = "250" height = "250" alt="三极管实现的非门" align=center />
+      <p></p>
+      <span>使用三极管实现的非门</span>
     </td>
 </tr></table>
 <blockquote>
@@ -431,6 +504,9 @@ $$
 </blockquote>
 <p>使用基本的逻辑门，我们可以构造复杂的系统实现更复杂的逻辑运算乃至 <strong>算术运算</strong> 与其他功能，上面提到的集成电路上就有大量的门电路。</p>
 <p>计算机系统里速度最快的 <em>中央执行单元（Central Processing Unit, CPU）</em> 中负责执行各种逻辑运算与算术运算的部分就是 <em>算术逻辑单元（arithmetic logic unit，ALU）</em>，大量复杂的运算最终都被分解为在特定计算机系统中规定好的这些基本运算（属于计算机指令系统的一部分，有关指令的内容会在下文作详细介绍），而 ALU 就是由门电路搭建的。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: ALU 是 CPU 的两大核心部件之一，另一核心部件是 <em>控制单元（Controller Unit，CU）</em>。简单来说，控制单元决定下一步应该做什么（发出命令的人），而算术逻辑单元负责执行（其中的运算部分）（执行命令的人）。</p>
+</blockquote>
 <p>下面是一个逻辑门实现基本算术运算的例子：一位全加器，其功能是输入只有一位的两个二进制数 $A$ 与 $B$ 相加，与低位来的一位进位 $C_{in}$，输出该位的计算结果 $S$ 与应该向高位的进位 $C_{out}$。把 $n$ 个一位全加器依次相连，每一个一位全加器向高位的进位输出 $C_{out}$ 连接到下一个一位全加器的低位进位输入 $C_{in}$，就可以实现两个 $n$ 位二进制数的相加。实际上这就是小学学过的加法计算过程。而使用门电路，你还可以设计三个二进制数相加、四个二进制数相加的电路（但必须是固定个数的二进制数相加！）</p>
 <table><tr>
     <td>
@@ -446,20 +522,58 @@ $$
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 为什么可以使用基本逻辑运算的门电路来实现算术运算呢？一个原因是上面提到的计算机使用 1 和 0 分别代表 True 和 False，从而同样的 1 和 0 在逻辑运算中可以被看做逻辑值，而在算术运算中可以被看做数值（不同语义！）。而另一个原因需要你了解逻辑代数与数字电路的基础知识。总之你现在只需要知道，逻辑运算与算术运算的输入输出值使用的符号形式（0 和 1）是相同的，而其中复杂的实现交给工程师就好了。</p>
 </blockquote>
-<p>一台主频为 $2 GHz$ 的计算机，每秒最多能够进行的基本（逻辑与算术）运算次数是 20 亿次。</p>
+<p>一台主频为 $2 GHz$ 的计算机，每秒最多能够进行的基本（逻辑与算术）运算次数是 20 亿次。在 Windows 操作系统上右击开始图标，选择 Windows PowerShell，在弹出的命令行界面中执行 <code>systeminfo</code> 命令，可以在处理器这一项中找到你的电脑 CPU 主频。</p>
 <blockquote>
-<p>💡 <strong>NOTE</strong>: 在 Windows 操作系统上右击开始图标，选择 Windows PowerShell，在弹出的命令行界面中执行 <code>systeminfo</code> 命令，可以在处理器这一项中找到你的电脑 CPU 主频。</p>
+<p>💡 <strong>NOTE</strong>: 通常在通信领域使用的频率单位换算以 10 为基：$1 KHz = 10^3 Hz$, $1 MHz = 10^3 KHz$, $1 GHz = 10^3 MHz$。而在计算机中数据计量使用的单位比特 $B$（Byte，1 Byte = 8 bit，这里 1 bit 就代表一位数符 digit）的单位换算以 2 为基：$1 KB = 2^{10} B$, $1 MB = 2^{10} KB$, $1 GHz = 2^{10} MB$。
+注意有 $10^3 = 1000$ 和 $2^{10} = 1024$。</p>
 </blockquote>
-<p>通常由各种逻辑门构建起来的电路被称为 <em>组合电路（Combinational Circuit）</em>，其特点是输出 <strong>即时响应</strong> 输入（逻辑上，工程中会有传播延迟的情况，请参考电磁波的传播速度）与 <strong>无记忆性</strong>。</p>
-<p>然而计算理论告诉我们，无记忆的机器与我们希望的机器（图灵机——理论上可以解决所有可计算问题的机器，其与组合电路在计算理论中对应的有限状态自动机的区别之一就是是否能够“记忆”）相差甚远，甚至不能实现一些很简单的任务，比如：</p>
+<p>通常由各种逻辑门构建起来的电路被称为 <em>组合逻辑电路（Combinational Logic Circuit）</em>，其特点是输出 <strong>即时响应</strong> 输入（逻辑上，工程中会有传播延迟的情况，请参考电磁波的传播速度）与 <strong>无记忆性</strong>。</p>
+<p>然而仅仅有组合逻辑电路，与理想中的图灵机相差甚远，甚至不能实现一些很简单的任务，比如：</p>
 <p><strong>把 n 个数相加，这里 n 也是待输入的变量（而不是某个固定的数）！</strong></p>
-<p><strong>存储</strong> 可以解决这个问题，我们离梦想中的图灵机更进一步了。</p>
-<h4 id="存储">存储</h4>
-<!--实际的计算机存储是有限的
-
-`https://zh.wikipedia.org/wiki/图_(数学)`
-
-`https://zh.wikipedia.org/wiki/%E5%9B%BE_(%E6%95%B0%E5%AD%A6)`-->
+<p>使用 <strong>存储</strong> 可以解决这个问题。</p>
+<h3 id="存储器层次结构">存储器层次结构</h3>
+<p><em>时序逻辑电路（Sequential logic Circuit）</em>，与组合逻辑电路相对，其输出不仅取决于输入，还取决于输入的 <strong>顺序</strong>，这就是 <strong>时序（Sequential）</strong> 的含义。</p>
+<p>比如对于上面提到的非门而言，输入 0 永远输出 1，输入 1 永远输出 0。但是对一个时序逻辑电路，依次输入 0101 和依次输入 1010 得到的对应于不同位置上的输入 1 输出可能不同，对于输入 0 同理。</p>
+<p>当实现了可以存储信息的电路后，我们就容易解决把任意数量的数相加的问题了，只要使用两个数的全加器每次将两个数相加，将结果 <strong>保存</strong> 起来，接着再使用两个数的全加器把你保存的结果与下一个数相加，结果再保存，直到所有数输入完毕。实际上，这就是你平时对一组数求和的时候做的事情（比如数学的概率统计题经常出现的求平均数）。</p>
+<p>在工程实际中综合考虑不同存储设备的 <strong>速度</strong> 与 <strong>成本</strong>，形成了存储器的层次结构。越底层的存储设备距离 CPU 越远，存取速度越低、成本越少、容量越大。</p>
+<img src="/img/beginner/memory-hierarchy.png" width = "500" height = "500" alt="Memory Hierarchy" align=center />
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 存储器层次结构的理论依据是所谓的 <strong>局部性原理</strong>，包括 <strong>空间局部性</strong> 与 <strong>时间局部性</strong>。<em>空间局部性</em> 是指在某一时刻访问了存储器的某个位置，则 <strong>最近一段时间</strong> 还可能访问 <strong>其相邻的存储位置</strong>，<em>时间局部性</em> 是指在某一时刻访问了存储器的某个位置，则 <strong>最近一段时间</strong> 还可能访问 <strong>这个位置</strong>。用一个形象的比喻：假如你是计算机专业的一名本科生，这学期你要上五门专业课：算法设计、数值分析、概率论、操作系统和程序设计思维。今天是周一，你只有上午一节操作系统和下午一节数值分析，你当然不会每次去上课都带上六本书！你只会在操作系统课上用操作系统的书，<del>除非你想在操作系统课上补你概率论没有写完的作业</del>，这就是局部性原理——在这门课的一段时间内，你只会使用到与这门课的有关的内容。</p>
+<td><img src="/img/beginner/book_cs.jpg" width = "320" height = "320" alt="计算机专业课本" align=center />
+<p>使用局部性原理，我们将最近一段时间 <strong>可能</strong> 被使用到的数据暂时存储在更快、更靠近 CPU 的存储器中（就像你去上课前把这门课用到的书放在书包里），而大量暂时用不到的数据被长期存储在更大、更慢的存储器中（就像你把所有书都放在宿舍里），即能节约成本，又能提高计算的效率。</p>
+</blockquote>
+<p>位于存储器层次结构顶端的 <em>寄存器（Register）</em> <strong>位于 CPU 中</strong>，是 <strong>可以直接将数据送至 ALU</strong> 的存储资源，访问速度最快（几乎不需要时间），容量也最小，在不同的计算机系统设计中通常被划分为多种使用目的。寄存器的存储电路是由能存储一位数据的 <em>锁存器（Latch）</em> 或 <em>触发器（Flip-flop）</em> 构成的，这种结构能够存储信号的关键是 <strong>将输出连接到输入</strong>，这样的行为也称为 <strong>反馈（Feedback）</strong>。</p>
+<table><tr>
+    <td>
+        <img src="/img/beginner/RS_latch.png" width = "250" height = "250" alt="一个 RS 锁存器的实现电路" align=center />
+        <p></p>
+        <p></p>
+        <span>一个 RS 锁存器的实现电路</span>
+    </td>
+        <td><img src="/img/beginner/RS_flipflop.png" width = "340" height = "340" alt="一个 RS 触发器的实现电路" align=center />
+        <p></p>
+        <span>一个 RS 触发器的实现电路</span>
+    </td>
+</tr></table>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 触发器与锁存器的区别是触发器“是否存储输入”由时钟信号 CLK 来决定，而触发器总是存储输入，如上图所示。</p>
+</blockquote>
+<p>第二层的 <em>高速缓存（Cache）</em> <strong>位于 CPU 与下一层的 <em>主存（Main menory）</em> 之间</strong>，是主存中数据的缓存区域。Cache 的存储电路是 <em>静态随机存储器（Static Random-Access Memory，SRAM）</em>，其存储单元同样由双稳态 <strong>触发器</strong> 实现。</p>
+<p>第三层的 <em>主存（Main Memory）</em> 是存储 <strong>运行中</strong> 程序相关数据与指令的地方，其存储电路是 <em>动态随机存取存储器（Dynamic Random Access Memory，DRAM）</em>，而存储单元使用的是栅极 <strong>电容</strong>，由于电容放电（即读出数据）时会破坏数据，需要时常 <strong>重写</strong> 或 <strong>刷新</strong> 其中的数据，这就是 <strong>动态</strong> 的含义（寄存器与 SRAM 只要不断电不写入新的数据就可以一直保持数据）。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 寄存器、Cache、主存中的数据都是为 <strong>运行中</strong> 程序服务的！断开电源后其中的数据会立即丢失，因此也被称为 <strong>易失性</strong> 存储器。</p>
+</blockquote>
+<p>第四层的 <em>二级存储（Secondary Memory）</em> 通常也称 <em>外部存储</em> 或 <em>外存</em>，包括你计算机中的磁盘、固态硬盘等，还有像 U 盘这样的移动硬盘。其原理各不相同，在这里就不作详细的讲述了。二级存储与上面三种存储器的最大区别就是它的 <strong>非易失性</strong>，也就是 <strong>数据在断电情况下仍然能够长期存储</strong>，你安装的软件、下载保存的各种文件都在二级存储上。比如在 Windows 操作系统上你使用的资源管理器就是在访问你的二级存储（当然你也可以通过更改 url 来访问网络资源，但它们都是外部存储）。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 在计算机中主存通常也被称为 <strong>内存</strong>，与外存相对，因为 CPU 与主存/内存是计算机的 <strong>核心</strong>，除此之外的设备包括大容量存储、键盘、鼠标、移动硬盘等，都属于 <strong>外部设备</strong>。请注意：日常中人们常说的内存有时并不是计算机中的内存含义，比如当一个人说“我的手机内存空间不够了，这个软件安装不了”，实际上他说的内存应该是外存，因为安装的软件（程序文件）都是位于断电不丢失的外部存储上的！通常你电脑突然死机没保存的文件都是在内存中尚未写入外存，现在很多智能的软件会帮你自动保存已更改的内容，以防止<del>你</del>电脑出现崩溃的情况。</p>
+</blockquote>
+<p>除此之外，还有远程三级存储，也就是你平时从网络上下载数据时访问的存储，它们在千里之外的服务器存储器上。</p>
+<p>存储器不仅可以存储数据，还能够存储已经写好的 <strong>程序</strong>，上面提到 <strong>存储程序</strong> 就是冯诺依曼计算机架构的核心，是实现 <strong>计算自动化</strong> 的关键。因为在不能存储程序的年代，人们必须 <strong>手动</strong> 向计算机输入每条命令，同样的程序可能需要使用多次，但每次都要重复输入，费时费力。而将需要的程序预先存储起来，再加上 <strong>控制器</strong>——可以根据规则从存储器指定的位置依次取出指令并向其它部件发出执行指令的信号，从而整个程序可以自动执行，而无需人类干预过程。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 另一个问题是人类与计算机交互（人机交互）的速度比起 CPU 实在是太慢了，手动输入指令根本无法充分发挥 CPU 速度快的优势（还记得吗，现在一台普通个人笔记本的运算速度最高也在每秒 10 到 20 亿次之间）。实际上直到现在输入输出操作（Input/Output，I/O 操作，这里的输入输出操作特指人类或其他设备与计算机核心部件进行交互的过程）与 CPU 的速度不匹配仍然是一个重要的问题。</p>
+</blockquote>
+<p>事实上，现代电子计算机的计算能力接近于计算理论上可以解决所有可计算问题的图灵机，之所以说接近，是因为实际中的计算机存储总是有限的（不管多么大），而图灵机要求的存储空间是无限的。</p>
+<h3 id="控制器与指令系统计算机的语言">控制器与指令系统：计算机的语言</h3>
 <h2 id="编程实践是学习计算机的最佳途径">编程：实践是学习计算机的最佳途径</h2>
 <p>自然语言是用于人与人之间交流的语言，你也可以认为编程语言就是用于人与计算机之间交流的语言。</p>
 <p>特定编程语言对应的 <em>编译器</em> 或 <em>解释器</em>（相关概念在下文中会进行解释）只是一个分析其编程语言语法的 <strong>程序</strong>，这样的程序无法理解语言的语义（所以有时你会发现编译通过而调试结果与预期不符，因为你可能打错了什么字符，但有些“智能”的编译器会在一些问题上给出警告），在自然语言中你可能使用一些不符合语言语法的表述（<del>比如倒装句</del>），然而对方仍然能够理解你的意思。但编译器可不行！如果你的源代码文件不符合编程语言的语法，编译器只会报错。</p>
@@ -522,7 +636,7 @@ $$
 
   
     <script src="https://utteranc.es/client.js"
-            repo="exitance/exitance.github.io"
+            repo="exitance/exitance/exitance.github.io"
             issue-term="pathname"
             theme="github-light"
             crossorigin="anonymous"
