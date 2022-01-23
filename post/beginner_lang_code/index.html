@@ -49,7 +49,7 @@
 <meta itemprop="name" content="0. 语言与编码">
 <meta itemprop="description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言"><meta itemprop="datePublished" content="2022-01-17T22:07:24+08:00" />
 <meta itemprop="dateModified" content="2022-01-17T22:07:24+08:00" />
-<meta itemprop="wordCount" content="15412">
+<meta itemprop="wordCount" content="20281">
 <meta itemprop="keywords" content="计算理论,硬件,语言," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="0. 语言与编码"/>
 <meta name="twitter:description" content="专栏前言 本专栏的深度学习内容大部分基于 山东大学计算机科学与技术学院 崔学峰老师在寒假期间为大一新生开设的深度学习自修课程，此课程使用 Python 编程语言"/>
@@ -132,8 +132,8 @@
         <div class="post-category">
             <a href="/categories/%E5%86%99%E7%BB%99%E5%B0%8F%E7%99%BD%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6%E4%B8%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/"> 写给小白的计算机科学与深度学习入门 </a>
             </div>
-          <span class="more-meta"> 15412 words </span>
-          <span class="more-meta"> 31 mins read </span>
+          <span class="more-meta"> 20281 words </span>
+          <span class="more-meta"> 41 mins read </span>
         
       </div>
     </header>
@@ -158,16 +158,17 @@
             <li><a href="#二进制硬件的选择">二进制：硬件的选择</a></li>
           </ul>
         </li>
-        <li><a href="#硬件从理论到实际从抽象到具体">硬件——从理论到实际，从抽象到具体</a>
+        <li><a href="#硬件从理论到实际从抽象到具体">硬件：从理论到实际，从抽象到具体</a>
           <ul>
-            <li><a href="#基本运算算术逻辑单元">基本运算——算术逻辑单元</a></li>
+            <li><a href="#算术逻辑单元计算的最小动作">算术逻辑单元：计算的最小动作</a></li>
             <li><a href="#存储器层次结构">存储器层次结构</a></li>
-            <li><a href="#控制器与指令系统计算机的语言">控制器与指令系统：计算机的语言</a></li>
+            <li><a href="#控制单元与指令系统计算机的语言">控制单元与指令系统：计算机的语言</a></li>
           </ul>
         </li>
-        <li><a href="#编程实践是学习计算机的最佳途径">编程：实践是学习计算机的最佳途径</a>
+        <li><a href="#编程实现算法">编程：实现算法</a>
           <ul>
-            <li><a href="#计算机的语言机器语言">计算机的语言：机器语言</a></li>
+            <li><a href="#程序设计的起源">程序设计的起源</a></li>
+            <li><a href="#从低级语言到高级语言">从低级语言到高级语言</a></li>
           </ul>
         </li>
       </ul>
@@ -190,7 +191,7 @@
 <p>💡 <strong>NOTE</strong>: 下面有一些技巧可能帮助你阅读以及理解本专栏的内容：</p>
 <ul>
 <li>请关注给出的专业名词的英文。一些名词的中文翻译有可能无法准确地描述其含义，并且多个不同名词可能存在相同的中文翻译或中文简称，然而它们是不同的东西。英文可以帮助你记住并理解它们之间的不同</li>
-<li>阅读专业名词定义时，建议首先找到宾语，即“它属于什么”，然后再查看定语，即描述其特殊性的内容。比如：
+<li>阅读专业名词定义时，建议首先找到宾语，即“它属于什么”，然后再看定语，即描述其特殊性的内容。比如：
 <ul>
 <li>形式语言：一个字母表上的某些有限长字符串的集合</li>
 <li>形式语言是集合这一概念中的一个子集</li>
@@ -207,7 +208,7 @@
 <p>在这里我不会给计算（Compute）下一个严格的定义，区别于通常在数学中所说的计算（Calculate），计算机科学中的 <em>计算（Compute）</em> 可以被认为是 <strong>执行一个算法的过程</strong>，它包含了数学中的计算概念。</p>
 <p>这里有几个值得注意的地方：</p>
 <ul>
-<li>这里使用的名词 <em>算法</em> 并没有给出对应的英文，在下文中你会看到两种算法的名词，而这里所说的算法同时包括它们。这里的算法，可以被理解为一些 <strong>指令的序列</strong>，简单而言，指令就是告诉你（或计算机）这一步应该做什么事情。一份菜谱也可以被认为是指令的序列，它告诉你完成一道菜需要先做什么，再做什么，最后做什么。</li>
+<li>这里使用的名词 <em>算法</em> 并没有给出对应的英文，在下文中你会看到两种算法的名词，而这里所说的算法同时包括它们。这里的算法，可以被理解为一些 <strong>指令的序列</strong>，简单而言，指令就是告诉你（或计算机）这一步应该做什么事情。一份菜谱也可以被认为是指令的序列，它告诉你完成一道菜需要先做什么，再做什么，最后做什么。但我们并不保证算法的“正确性”，也就是说一个算法可能是“错误”的。在这个意义上，使用 <strong>“过程”</strong> 或者 <strong>“步骤”</strong> 来表述这里的算法可能更为合适。</li>
 <li>执行算法的可能是人，也可能是计算机。在以前只有人可以执行算法，而计算机的诞生与发展大大提高了计算的效率，计算机最擅长的就是快速处理大量繁重的任务，使以前许多不可能的任务成为可能，使人类可以从许多无聊的工作中解脱出来。<del>所以 21 世纪了小学生为什么还需要做大量无用的算数题。</del></li>
 </ul>
 <p>什么问题是可以解决的？什么问题是无法解决的？这个问题相当于：
@@ -232,9 +233,9 @@ $$</p>
 <p>如下图所示，可以把过程理解为一个黑箱，将输入放进黑箱中得到输出。黑箱中执行的转换操作就是算法/过程</p>
 <img src="/img/beginner/function.png" width = "450" height = "400" alt="function" align=center />
 <p>计算能够解决（Solve）很多问题！但不是全部，比如“明天天气如何？”。尽管你可以方便地获取天气预报，然而我们都知道天气预报<del>很多时候都</del>不准——换句话说，它不保证给你正确的结果。但是所谓 <em>解决（Solve）</em> <strong>一类</strong> 问题，我们必须对此类问题 <strong>所有可能的输入</strong> 得到 <strong>正确</strong> 的结果（输出）！</p>
-<p>相应地，在计算机科学中，问题被分为可计算的与不可计算的。<em>可计算（Computable）问题</em> 指的就是可以找到解决这类问题的算法的所有问题类的集合。</p>
+<p>相应地，在计算机科学中，问题被分为可计算的与不可计算的。<em>可计算（Computable）问题</em> 指的就是可以找到 <strong>解决（Solve）</strong> 这类问题的算法的所有问题类的集合，通常这类能够解决问题的算法被称为 <strong>算法（Algorithm）</strong>。另一个相对的算法概念是 <strong>启发式算法（Heuristic）</strong>，虽然我们经常看到有人使用算法来描述它们（都包括在本文一开始提到的算法概念中），但是 algorithm 和 heuristic 是有本质不同的！Algorithm 的其中一个基本要求是 <strong>正确性</strong>，而 heuristic 并不能保证得到正确的结果！这门课讲授的深度学习中的算法都属于 heuristic。</p>
 <blockquote>
-<p>💡 <strong>NOTE</strong>: 这里所说的广泛意义上的算法（可能说过程更为合适）不一定解决问题，它只是描述一个方案。然而算法（描述）乃至程序（实现）的正确性可能是很难证明的！甚至有些问题是不可计算的，比如这门课要讲的深度学习，作为人工智能当下大热的一个技术，致力于（从概率意义上）得到很多 <strong>不可</strong> 计算的问题的结果，或者被应用于加速得到一些可计算但 <strong>难</strong> 计算问题结果的过程（而不一定正确）。</p>
+<p>💡 <strong>NOTE</strong>: 算法（描述）乃至程序（实现）的正确性可能是很难证明的！甚至就如上文所述，有些问题本身就是不可计算的，比如深度学习，作为人工智能当下大热的一个技术，致力于（从概率意义上）得到很多 <strong>不可</strong> 计算的问题的结果，或者被应用于加速得到一些可计算但 <strong>难</strong> 计算问题结果的过程（而不一定正确）。</p>
 </blockquote>
 <p>到这里你应该对计算是什么有了一个大概的印象，但是为什么要计算？从前面的介绍中你可以总结出其中一个原因——因为有些问题是纯粹的数学或其他自然科学、工程学无法解决的。</p>
 <p>还有一些问题是数学和其他自然科学、工程学尚未找到解决方法的（比如微分方程的解析解），我们可以借助现代的计算机来进行大量复杂的计算得到近似结果（比如微分方程的数值解），很多时候近似结果是足够好的。</p>
@@ -320,7 +321,7 @@ $$</p>
 <p>下面是计算机中的一些编码实例：</p>
 <hr>
 <p>你在 Web 浏览器如 IE、Google Chorme 中访问某个网站输入的“网址”被称为 <strong>统一资源定位符（Uniform Resource Locator，URL）</strong>。它被用于定位（<strong>L</strong> ocate）网络资源（<strong>R</strong> esource），所谓网络资源，其实是存放在距离你很远的 <strong>服务器</strong> 上的 <strong>各种文件</strong>，它们可以通过 URL 这样统一（<strong>U</strong> niform）的访问格式来被访问（根据网站设计，这个 URL 路径可能与该文件实际在服务器上的文件路径有所不同，但形式是相同的）。无论是浏览网页，还是下载文件，你都是用 URL 来对这些资源进行访问的。</p>
-<p>下面展示了 URL 的基本结构，其中 Protocol 是 <em>网络协议（Internet Protocol）</em>，它是一组 <strong>通信规则</strong>，规定了通信时信息必须采用的 <strong>格式</strong> 和这些格式的 <strong>意义</strong>。简单来讲，就是 <strong>为了在网络中交换信息，需要遵守的一组规则</strong>。（网络协议包括了）在这个例子中使用的是 HTTPS 协议，也是我们网上冲浪时最常用的协议：超文本传输安全协议（Hypertext Transfer Protocol Secure）。Hostname 是 主机名，就是你要访问的资源所在服务器被分配的域名。Filename 是文件名（更普遍的情况是文件路径 Filepath，类似于你的计算机本地磁盘上的文件路径），也就是你要访问的 <strong>资源</strong> 在此服务器上的路径。通常，你只需要在地址栏中输入域名和资源路径，Web 浏览器会自动为你填充合适的协议。</p>
+<p>下面展示了 URL 的基本结构，其中 Protocol 是 <em>网络协议（Internet Protocol）</em>，它是一组 <strong>通信规则</strong>，规定了通信时信息必须采用的 <strong>格式</strong> 和这些格式的 <strong>意义</strong>。简单来讲，就是 <strong>为了在网络中交换信息，需要遵守的一组规则</strong>。在这个例子中使用的是 HTTPS 协议，也是我们网上冲浪时最常用的协议：超文本传输安全协议（Hypertext Transfer Protocol Secure）。Hostname 是 主机名，就是你要访问的资源所在服务器被分配的域名。Filename 是文件名（更普遍的情况是文件路径 Filepath，类似于你的计算机本地磁盘上的文件路径），也就是你要访问的 <strong>资源</strong> 在此服务器上的路径。通常，你只需要在地址栏中输入域名和资源路径，Web 浏览器会自动为你填充合适的协议。</p>
 <img src="/img/beginner/url_structure.png" width = "400" height = "400" alt="url 的结构" align=center />
 <p>实际上你也可以在 Web 浏览器中访问本机上的文件，<del>尽管通常不会有人这样做</del>，只需要在本地文件路径前添加协议 <code>file://</code>，比如 <code>file://C:/Users/Public</code>。或者直接输入本地文件路径，就如上文所述，现在的浏览器一般会在资源路径前自动为你添加合适的协议。</p>
 <p>浏览器的地址栏可以显示中文，这是维基百科图（Graph）词条的 URL，在浏览器中打开它时，你会看到其中含有中文：</p>
@@ -344,7 +345,7 @@ $$</p>
 </ul>
 <p>这里使用了 C 语言中的表示方法，约定用单引号围起来的 <code>'2'</code> 是 <strong>字符</strong> 2，用双引号围起来的 <code>&quot;2&quot;</code> 是 <strong>字符串</strong> 2，而单独一个 <code>2</code> 就是 <strong>（十进制）数字</strong> 2。字符串由字符序列组成，由于目前我们讨论的是编码，所以这里只关心计算机中表示 <strong>字符与数字的区别</strong>。</p>
 <p>在二进制计算机中，它们 <strong>最终</strong> 都是使用 0 和 1 来表示的，但编码方法不同，对 <strong>数字</strong> 而言是直接使用 0 和 1—— <strong>二进制表示的数字</strong>，而对于带有正负号的数字，计算机有特别的编码规则，用 0 和 1 来表示正号和负号，但不是简单的在数字前加上 0 和 1，这里就不作详细介绍了。而 <strong>字符</strong> 是使用 <strong>数字的一些组合</strong> 来表示的，比如一个简单的实现方式是把需要显示的字符排个队，按顺序为每一个字符指定一个数字。由于计算机中用 0 和 1 来编码数字，所以最终它们也是由 0 和 1 来表示的，但数字与字符用的编码符号不同。数字 2 代表了这个数字的抽象含义，而 字符 2 是数字 2 的一种具体表示形式，你也可以使用罗马数字符号 Ⅱ 来表示这个相同的抽象含义。如果使用 ASCII 编码，计算机中使用二进制的数字 50 来表示字符 2 ，而数字 2 就是二进制的数字 2。通常，计算机中将字符用于显示、输入输出、文本文件等，而数字用于执行计算（你在计算机中看到的“数字”，实际都是字符！计算机中真正的数字你是看不见的）。</p>
-<p>计算机中用于表示字符的编码有很多种，除了被广泛使用的 ASCII，还有 <strong>Unicode</strong>——它编码了世界上大部分的文字系統。上面提到的 UTF-8 就是 Unicode 标准的一种实现（考虑了在二进制计算机中最终用 0 和 1 来表示的相关问题，比如存储空间）。Unicode 甚至可以编码 emoji 表情，下面是一些符号对应的 Unicode 编码（十六进制表示）：</p>
+<p>计算机中用于表示字符的编码有很多种，除了被广泛使用的 ASCII，还有 <strong>Unicode</strong>——它编码了世界上大部分的文字系統。上面提到的 UTF-8 编码就是 Unicode 编码的一种实现（考虑了在二进制计算机中最终用 0 和 1 来表示的相关问题，比如存储空间）。下面是一些字符对应的 Unicode 编码（十六进制表示）：</p>
 <ul>
 <li>K：004B</li>
 <li>文：6587</li>
@@ -410,11 +411,11 @@ $$
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 请注意这里需要特别关注限定词：</p>
 <ul>
-<li><em>现代</em>：历史上的计算机可能采用的是十进制而非二进制，虽然十进制同样可以用于编码与计算，但是现代计算机均采用 <strong>二进制</strong>，下面的讨论也基于二进制。并且现代计算机采用冯诺依曼架构，其核心思想是 <strong>存储程序</strong>，这是实现计算 <strong>自动化</strong> 的关键（为什么？）。</li>
-<li><em>电子</em>：区别于 TCS 中研究前沿的量子计算机或生物计算机，这里讨论的是目前能够被制造出来并且广泛应用的电子计算机的硬件结构，其计算能力对应于计算复杂性理论中的确定性图灵机。简单来说，量子计算机与生物计算机的计算能力是现在的电子计算机的指数级别倍（是真正的指数级别！）</li>
+<li><em>现代</em>：历史上的计算机可能采用的是十进制而非二进制，虽然十进制同样可以用于编码与计算，但是现代计算机均采用 <strong>二进制</strong>，下面的讨论也基于二进制。并且现代计算机采用冯诺依曼架构，其核心思想是 <strong>存储程序</strong>，这是实现 <strong>软件与硬件分离</strong> 的关键（为什么？）。</li>
+<li><em>电子</em>：区别于 TCS 中研究前沿的量子计算机或生物计算机，这里讨论的是目前能够被制造出来并且广泛应用的电子计算机的硬件结构，其计算效率对应于计算复杂性理论中的确定性图灵机。简单来说，量子计算机与生物计算机的计算效率是现在的电子计算机的指数级别倍（是真正的指数级别！）</li>
 </ul>
 </blockquote>
-<h2 id="硬件从理论到实际从抽象到具体">硬件——从理论到实际，从抽象到具体</h2>
+<h2 id="硬件从理论到实际从抽象到具体">硬件：从理论到实际，从抽象到具体</h2>
 <p>现代电子计算机中所采用的电子元器件是“大规模和超大规模集成电路”。</p>
 <p><em>集成电路 或称 单片集成电路（<strong>Integrated Circuit</strong> or <strong>Monolithic Integrated Circuit</strong> ，also called <strong>IC</strong>、<strong>Chip</strong> or <strong>Microchip</strong>）</em> 是位于 <strong>半导体</strong> 材料（通常为硅）的一个小平板（“芯片”）上的 <strong>一组</strong> 电子电路。集成电路技术把一个电路中所需的电子元件及布线互连在一起，然后镶嵌在半导体基片上，然后再封裝（Packaging，可以理解为打包），成为一个具有电路功能的微型结构，这导致电路比由分立电子元件构成的电路更小、更快且更便宜——从而计算机可以从原来占用几间屋子的大型机演变为现在的个人计算机甚至嵌入式系统，比如手机。自从集成电路诞生以来，使用集成的晶体管数量来定义其规模，经历了集成电路——中规模集成电路——大规模集成电路——超大规模集成电路的发展过程（<del>工程师的语言如此贫乏</del>）。</p>
 <blockquote>
@@ -434,7 +435,7 @@ $$
 </tr></table>
 <p>想要了解更多历史，可以参考 <a href="https://en.wikipedia.org/wiki/History_of_computing_hardware">History of computing hardware</a> 或 <a href="https://www.wikiwand.com/zh-sg/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A1%AC%E9%AB%94%E6%AD%B7%E5%8F%B2">计算机硬件历史</a></p>
 <p>如果你是计算机与电子电气相关专业的同学，电路三件套（电路原理、模拟电子技术、数字电子技术）会带你走向<del>挂科</del>电子电路的神奇世界。</p>
-<h3 id="基本运算算术逻辑单元">基本运算——算术逻辑单元</h3>
+<h3 id="算术逻辑单元计算的最小动作">算术逻辑单元：计算的最小动作</h3>
 <p>我们首先从可以执行 <strong>基本逻辑运算</strong> 的 <em>门（Gate）电路 或称 逻辑门（Logic Gate）电路</em> 开始介绍。通常而言 <em>基本逻辑运算</em> 指的是三种逻辑运算：<strong>与</strong>（同时为真）、<strong>或</strong>（至少一个为真）、<strong>非</strong>（和你反着来）。</p>
 <p>门电路是现代电子计算机的 building blocks ，就像建造大楼的砖块。</p>
 <blockquote>
@@ -536,54 +537,148 @@ $$
 <p>比如对于上面提到的非门而言，输入 0 永远输出 1，输入 1 永远输出 0。但是对一个时序逻辑电路，依次输入 0101 和依次输入 1010 得到的对应于不同位置上的输入 1 输出可能不同，对于输入 0 同理。</p>
 <p>当实现了可以存储信息的电路后，我们就容易解决把任意数量的数相加的问题了，只要使用两个数的全加器每次将两个数相加，将结果 <strong>保存</strong> 起来，接着再使用两个数的全加器把你保存的结果与下一个数相加，结果再保存，直到所有数输入完毕。实际上，这就是你平时对一组数求和的时候做的事情（比如数学的概率统计题经常出现的求平均数）。</p>
 <p>在工程实际中综合考虑不同存储设备的 <strong>速度</strong> 与 <strong>成本</strong>，形成了存储器的层次结构。越底层的存储设备距离 CPU 越远，存取速度越低、成本越少、容量越大。</p>
-<img src="/img/beginner/memory-hierarchy.png" width = "500" height = "500" alt="Memory Hierarchy" align=center />
+<img src="/img/beginner/memory-hierarchy.png" width = "600" height = "500" alt="Memory Hierarchy" align=center />
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 存储器层次结构的理论依据是所谓的 <strong>局部性原理</strong>，包括 <strong>空间局部性</strong> 与 <strong>时间局部性</strong>。<em>空间局部性</em> 是指在某一时刻访问了存储器的某个位置，则 <strong>最近一段时间</strong> 还可能访问 <strong>其相邻的存储位置</strong>，<em>时间局部性</em> 是指在某一时刻访问了存储器的某个位置，则 <strong>最近一段时间</strong> 还可能访问 <strong>这个位置</strong>。用一个形象的比喻：假如你是计算机专业的一名本科生，这学期你要上五门专业课：算法设计、数值分析、概率论、操作系统和程序设计思维。今天是周一，你只有上午一节操作系统和下午一节数值分析，你当然不会每次去上课都带上六本书！你只会在操作系统课上用操作系统的书，<del>除非你想在操作系统课上补你概率论没有写完的作业</del>，这就是局部性原理——在这门课的一段时间内，你只会使用到与这门课的有关的内容。</p>
-<td><img src="/img/beginner/book_cs.jpg" width = "320" height = "320" alt="计算机专业课本" align=center />
+<img src="/img/beginner/book_cs.jpg" width = "320" height = "220" alt="计算机专业课本" align=center />
 <p>使用局部性原理，我们将最近一段时间 <strong>可能</strong> 被使用到的数据暂时存储在更快、更靠近 CPU 的存储器中（就像你去上课前把这门课用到的书放在书包里），而大量暂时用不到的数据被长期存储在更大、更慢的存储器中（就像你把所有书都放在宿舍里），即能节约成本，又能提高计算的效率。</p>
 </blockquote>
-<p>位于存储器层次结构顶端的 <em>寄存器（Register）</em> <strong>位于 CPU 中</strong>，是 <strong>可以直接将数据送至 ALU</strong> 的存储资源，访问速度最快（几乎不需要时间），容量也最小，在不同的计算机系统设计中通常被划分为多种使用目的。寄存器的存储电路是由能存储一位数据的 <em>锁存器（Latch）</em> 或 <em>触发器（Flip-flop）</em> 构成的，这种结构能够存储信号的关键是 <strong>将输出连接到输入</strong>，这样的行为也称为 <strong>反馈（Feedback）</strong>。</p>
+<p>🦅 存储器层次结构顶端的 <em>寄存器（Register）</em> <strong>位于 CPU 中</strong>，是 <strong>可以直接将数据送至 ALU</strong> 的存储资源，访问速度最快（几乎不需要时间），容量也最小，通常被分为可以存放任意数据的通用寄存器和用于特定目的的寄存器。寄存器的存储电路是由能存储一位数据的 <em>锁存器（Latch）</em> 或 <em>触发器（Flip-flop）</em> 构成的，这种结构能够存储信号的关键是 <strong>将输出连接到输入</strong>，这样的行为也称为 <strong>反馈（Feedback）</strong>。</p>
 <table><tr>
-    <td>
-        <img src="/img/beginner/RS_latch.png" width = "250" height = "250" alt="一个 RS 锁存器的实现电路" align=center />
-        <p></p>
-        <p></p>
-        <span>一个 RS 锁存器的实现电路</span>
-    </td>
-        <td><img src="/img/beginner/RS_flipflop.png" width = "340" height = "340" alt="一个 RS 触发器的实现电路" align=center />
-        <p></p>
-        <span>一个 RS 触发器的实现电路</span>
-    </td>
+  <td>
+    <img src="/img/beginner/RS_latch.png" width = "250" height = "250" alt="一个 RS 锁存器的实现电路" align=center />
+    <p></p>
+    <span>一个 RS 锁存器的实现电路</span>
+  </td>
+  <td>
+    <img src="/img/beginner/RS_flipflop.png" width = "340" height = "340" alt="一个 RS 触发器的实现电路" align=center />
+    <p></p>
+    <span>一个 RS 触发器的实现电路</span>
+  </td>
 </tr></table>
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 触发器与锁存器的区别是触发器“是否存储输入”由时钟信号 CLK 来决定，而触发器总是存储输入，如上图所示。</p>
 </blockquote>
-<p>第二层的 <em>高速缓存（Cache）</em> <strong>位于 CPU 与下一层的 <em>主存（Main menory）</em> 之间</strong>，是主存中数据的缓存区域。Cache 的存储电路是 <em>静态随机存储器（Static Random-Access Memory，SRAM）</em>，其存储单元同样由双稳态 <strong>触发器</strong> 实现。</p>
-<p>第三层的 <em>主存（Main Memory）</em> 是存储 <strong>运行中</strong> 程序相关数据与指令的地方，其存储电路是 <em>动态随机存取存储器（Dynamic Random Access Memory，DRAM）</em>，而存储单元使用的是栅极 <strong>电容</strong>，由于电容放电（即读出数据）时会破坏数据，需要时常 <strong>重写</strong> 或 <strong>刷新</strong> 其中的数据，这就是 <strong>动态</strong> 的含义（寄存器与 SRAM 只要不断电不写入新的数据就可以一直保持数据）。</p>
+<p>🐆 第二层的 <em>高速缓存（Cache）</em> <strong>位于 CPU 与下一层的 <em>主存（Main menory）</em> 之间</strong>，是主存中数据的缓存区域。Cache 的存储电路是 <em>静态随机存储器（Static Random-Access Memory，SRAM）</em>，其存储单元同样由双稳态 <strong>触发器</strong> 实现。</p>
+<p>🐎 第三层的 <em>主存（Main Memory）</em> 是存储 <strong>运行中</strong> 程序相关数据与指令的地方，其存储电路是 <em>动态随机存取存储器（Dynamic Random Access Memory，DRAM）</em>，而存储单元使用的是栅极 <strong>电容</strong>，由于电容放电（即读出数据）时会破坏数据，需要时常 <strong>重写</strong> 或 <strong>刷新</strong> 其中的数据，这就是 <strong>动态</strong> 的含义（寄存器与 SRAM 只要不断电不写入新的数据就可以一直保持数据）。</p>
+<table><tr>
+  <td>
+    <img src="/img/beginner/sram-vs-dram.jpg" width = "500" height = "500" alt="SRAM 与 DRAM" align=center />
+    <p></p>
+    <span>上方是 Cache 使用的 SRAM，下方是主存使用的 DRAM，即我们通常说的内存条</span>
+  </td>
+</tr></table>
 <blockquote>
 <p>💡 <strong>NOTE</strong>: 寄存器、Cache、主存中的数据都是为 <strong>运行中</strong> 程序服务的！断开电源后其中的数据会立即丢失，因此也被称为 <strong>易失性</strong> 存储器。</p>
 </blockquote>
-<p>第四层的 <em>二级存储（Secondary Memory）</em> 通常也称 <em>外部存储</em> 或 <em>外存</em>，包括你计算机中的磁盘、固态硬盘等，还有像 U 盘这样的移动硬盘。其原理各不相同，在这里就不作详细的讲述了。二级存储与上面三种存储器的最大区别就是它的 <strong>非易失性</strong>，也就是 <strong>数据在断电情况下仍然能够长期存储</strong>，你安装的软件、下载保存的各种文件都在二级存储上。比如在 Windows 操作系统上你使用的资源管理器就是在访问你的二级存储（当然你也可以通过更改 url 来访问网络资源，但它们都是外部存储）。</p>
+<p>🐫 第四层的 <em>二级存储（Secondary Memory）</em> 通常也称 <em>外部存储</em> 或 <em>外存</em>，包括你计算机中的磁盘、固态硬盘等，还有像 U 盘这样的移动硬盘。其原理各不相同，在这里就不作详细的讲述了。二级存储与上面三种存储器的最大区别就是它的 <strong>非易失性</strong>，也就是 <strong>数据在断电情况下仍然能够长期存储</strong>，你安装的软件、下载保存的各种文件都在二级存储上。比如在 Windows 操作系统上你使用的资源管理器就是在访问你的二级存储（当然你也可以通过更改 url 来访问网络资源，但它们都是外部存储）。</p>
+<table><tr>
+  <td>
+    <img src="/img/beginner/SSD-vs-HDD.jpg" width = "500" height = "500" alt="SSD 与 HDD" align=center />
+    <p></p>
+    <span>两种不同的二级存储，左边是固态硬盘（SSD），右边是磁盘（HDD）</span>
+  </td>
+</tr></table>
+<p>在计算机中主存通常也被称为 <strong>内存</strong>，与外存相对，因为 CPU 与主存/内存是计算机的 <strong>核心</strong>，除此之外的设备包括大容量存储、键盘、鼠标、移动硬盘等，都属于 <strong>外部设备</strong>。请注意：日常中人们常说的内存有时并不是计算机中的内存含义，比如当一个人说“我的手机内存空间不够了，这个软件安装不了”，实际上他说的内存应该是外存，因为安装的软件（程序文件）都是位于断电不丢失的外部存储上的！通常你电脑突然死机没保存的文件都是在内存中尚未写入外存，现在很多智能的软件会帮你自动保存已更改的内容，以防止<del>你</del>电脑出现崩溃的情况。</p>
 <blockquote>
-<p>💡 <strong>NOTE</strong>: 在计算机中主存通常也被称为 <strong>内存</strong>，与外存相对，因为 CPU 与主存/内存是计算机的 <strong>核心</strong>，除此之外的设备包括大容量存储、键盘、鼠标、移动硬盘等，都属于 <strong>外部设备</strong>。请注意：日常中人们常说的内存有时并不是计算机中的内存含义，比如当一个人说“我的手机内存空间不够了，这个软件安装不了”，实际上他说的内存应该是外存，因为安装的软件（程序文件）都是位于断电不丢失的外部存储上的！通常你电脑突然死机没保存的文件都是在内存中尚未写入外存，现在很多智能的软件会帮你自动保存已更改的内容，以防止<del>你</del>电脑出现崩溃的情况。</p>
+<p>💡 <strong>NOTE</strong>: 在操作系统出现后，内存被划分为 <strong>物理内存</strong> 与 <strong>虚拟内存</strong>，上文中的内存均指物理内存。</p>
 </blockquote>
-<p>除此之外，还有远程三级存储，也就是你平时从网络上下载数据时访问的存储，它们在千里之外的服务器存储器上。</p>
-<p>存储器不仅可以存储数据，还能够存储已经写好的 <strong>程序</strong>，上面提到 <strong>存储程序</strong> 就是冯诺依曼计算机架构的核心，是实现 <strong>计算自动化</strong> 的关键。因为在不能存储程序的年代，人们必须 <strong>手动</strong> 向计算机输入每条命令，同样的程序可能需要使用多次，但每次都要重复输入，费时费力。而将需要的程序预先存储起来，再加上 <strong>控制器</strong>——可以根据规则从存储器指定的位置依次取出指令并向其它部件发出执行指令的信号，从而整个程序可以自动执行，而无需人类干预过程。</p>
-<blockquote>
-<p>💡 <strong>NOTE</strong>: 另一个问题是人类与计算机交互（人机交互）的速度比起 CPU 实在是太慢了，手动输入指令根本无法充分发挥 CPU 速度快的优势（还记得吗，现在一台普通个人笔记本的运算速度最高也在每秒 10 到 20 亿次之间）。实际上直到现在输入输出操作（Input/Output，I/O 操作，这里的输入输出操作特指人类或其他设备与计算机核心部件进行交互的过程）与 CPU 的速度不匹配仍然是一个重要的问题。</p>
-</blockquote>
+<p>🐘 除此之外，还有远程三级存储，也就是你平时在网络上浏览和下载数据时访问的存储，它们就是在编码举例中提到过的服务器存储。</p>
 <p>事实上，现代电子计算机的计算能力接近于计算理论上可以解决所有可计算问题的图灵机，之所以说接近，是因为实际中的计算机存储总是有限的（不管多么大），而图灵机要求的存储空间是无限的。</p>
-<h3 id="控制器与指令系统计算机的语言">控制器与指令系统：计算机的语言</h3>
-<h2 id="编程实践是学习计算机的最佳途径">编程：实践是学习计算机的最佳途径</h2>
-<p>自然语言是用于人与人之间交流的语言，你也可以认为编程语言就是用于人与计算机之间交流的语言。</p>
-<p>特定编程语言对应的 <em>编译器</em> 或 <em>解释器</em>（相关概念在下文中会进行解释）只是一个分析其编程语言语法的 <strong>程序</strong>，这样的程序无法理解语言的语义（所以有时你会发现编译通过而调试结果与预期不符，因为你可能打错了什么字符，但有些“智能”的编译器会在一些问题上给出警告），在自然语言中你可能使用一些不符合语言语法的表述（<del>比如倒装句</del>），然而对方仍然能够理解你的意思。但编译器可不行！如果你的源代码文件不符合编程语言的语法，编译器只会报错。</p>
-<p>所以当你发现编译器报错，或者程序调试出现 Bug 的时候，一定是你错了（<del>或者你使用的包本身就有 Bug</del>），而不是编译器或计算机（除非你已经是达到可以<del>警告编译器</del>境界的编程高手了，<del>而这时候你应该不会在阅读我这个菜鸟写的文章</del>），请老老实实查阅相关资料，找到问题所在吧！</p>
+<p>存储器不仅可以存储数据，还能够存储已经写好的 <strong>程序</strong>，上面提到 <strong>存储程序</strong> 就是冯诺依曼计算机架构的核心，是实现 <strong>软硬件分离</strong> 的关键。在早期可编程计算机中，早期计算机数据存放在存储器中，程序则是控制器的一部分，要执行一个特定的程序必须直接与硬件交互，修改程序时需要更改硬件的连接等配置，如果更改了程序后要重新运行前一个程序，又需要重复一遍工作，最重要的是直接操作硬件比起现在编写软件更加困难，出现 Bug 也更难调试，费时费力。而冯诺依曼架构的 <strong>存储程序</strong> 思想将程序 <strong>以数据的形式</strong> 存放在存储器中，再加上 <strong>控制单元</strong>——可以根据规则从存储器指定的位置依次取出指令并向其它部件发出执行指令的信号，从而实现了 <strong>软件与硬件的分离</strong>，程序员不需要再直接对硬件进行编程，且程序编写好后不用再重复劳动了。</p>
+<h3 id="控制单元与指令系统计算机的语言">控制单元与指令系统：计算机的语言</h3>
+<p><em>控制单元（Control Unit，CU）</em> 位于 CPU 中，负责控制指令流，即程序的运行。现代计算机中控制单元通常包含一个 <em>程序计数器（Program Counter，PC）</em>，属于存储器层次结构中的 <strong>特定目的寄存器</strong>，用于 <strong>存放指令在内存中的地址</strong>，冯诺依曼计算机架构就是使用它来区分存放在内存中的哪些是指令（而不是数据）的。之所以叫 <strong>计数器（Counter）</strong>，是因为每次取出指令后其中地址会自动 <strong>“+1”</strong>，从而一个程序中的指令可以自动顺序执行（一个程序的指令在内存中顺序存放），如果在程序中出现非顺序执行的情况，计算机会有特别的处理方式，但依旧是依靠 PC 来找到下一条应该执行的指令的地址。简单来说，PC 告诉控制单元“去哪找下一条指令”。而从内存中取出来的指令也会放在一个特定的寄存器中，再通过 <strong>解码</strong> 过程——将用 0 和 1 编码的指令变成电路中直接的控制信号，从而 <strong>执行</strong> 该指令。</p>
 <blockquote>
-<p>💡 <strong>NOTE</strong>: 对于编译器的工作可以这样理解：编译器这一检查语法的程序执行的是严格定义的 <strong>算法（Algorithm）</strong>，而像自然语言处理这样试图理解语义的方向使用的是 <strong>启发式算法（Heuristic）</strong>，虽然我们经常看到有人使用算法来描述它们，但是 algorithm 和 heuristic 是有本质不同的！algorithm 的其中一个要求是 <strong>正确性</strong>，而 heuristic 并不能保证得到正确的结果！深度学习中的算法都属于 heuristic</p>
+<p>💡 <strong>NOTE</strong>: 请注意这里粗体强调的 <strong>“+1”</strong>，并不是在地址数上加上 1 这个数，而是一个指令在内存中占的“宽度”，也就是 <strong>“加上一条指令的长度”</strong>——到下一条指令的开头。</p>
 </blockquote>
-<p>形式语言中的字符与编程语言常说的字符</p>
-<p>形式语言中的字符串与编程语言中的数据结构字符串</p>
-<h3 id="计算机的语言机器语言">计算机的语言：机器语言</h3>
+<p>计算机使用的 <em>指令系统</em>，也叫 <strong>机器语言（Machine Language）</strong>，即使用 0 和 1 编码，计算机能够直接解释与执行的基本指令集合。它在设计 CPU 的时候决定，也就是说，计算机上的 CPU 决定了它可以执行的指令有哪些。通常来说，指令系统包括上述提到的算术运算与逻辑运算指令，以及将数据与指令在一些存储位置之间移动的的指令等等。所有复杂的计算机程序最终都是由这些看起来功能非常简单的基本指令实现的。</p>
+<table><tr>
+  <td>
+    <img src="/img/beginner/intel_cpu.jpg" width = "400" height = "400" alt="Intel CPU" align=center />
+    <p></p>
+    <span>Intel 公司制造的 Core 系列处理器</span>
+  </td>
+  <td>
+    <img src="/img/beginner/Intel-Core_example.jpg" width = "400" height = "400" alt="Intel Core 系列" align=center />
+    <p></p>
+    <span>实际上处理器就是一块集成电路</span>
+  </td>
+</tr></table>
+<p>至此，我们已经介绍了冯诺依曼计算机体系结构（现代电子计算机通常使用的架构）的 <strong>核心部分</strong>：中央处理器（CPU）中的 <strong>算术逻辑单元（ALU）</strong> 和 <strong>控制单元（CU）</strong>、以及存储器体系结构中的 <strong>主存（MM）</strong>。它们是计算机用于 <strong>运行</strong> 程序（或者说 <strong>计算</strong>）的全部组成部分。而冯诺依曼结构的输入与输出就包括上面提到的用于长期存储（数据和程序）的外存，还有键盘、鼠标、显示器、打印机等用于输入输出（数据）的其他外部设备。</p>
+<img src="/img/beginner/Von_basic_structure.png" width = "500" height = "500" alt="冯诺依曼架构的基本结构" align=center />
+<p>命令行中可以使用 gdb 调试程序查看一个程序的机器语言代码，下图中间的 01 码就是一个程序中的机器指令序列。</p>
+<img src="/img/beginner/machine_code.jfif" width = "500" height = "500" alt="机器语言代码" align=center />
+<p>机器指令看起来很令人头疼，早期的程序员直接使用机器指令进行编程，很容易出错。现在的程序员大部分使用对人类更友好的编程语言进行编程，编写出来的程序可以达到相同的功能，在计算机上运行，可是计算机只能执行机器语言，程序员们究竟是如何做到这一点的呢？</p>
+<h2 id="编程实现算法">编程：实现算法</h2>
+<p>编程——编写 <strong>程序（Program）</strong> 即使用某种编程语言来实现算法。算法是指令的序列，但这里的“指令”可以用自然语言等非形式化的语言来描述，而程序必须使用形式化的语言来描述，通常是某种编程语言标准，比如上面的机器语言、还有更高级的 C 语言与 Python 语言等。</p>
+<p>自然语言是用于人与人之间交流的语言，你也可以认为编程语言就是用于人与计算机之间交流的语言，或者说，它是人类用来 <strong>告诉计算机怎么做，执行什么指令</strong> 的语言。</p>
+<h3 id="程序设计的起源">程序设计的起源</h3>
+<p>公认世界上第一个程序员是著名的英国诗人拜伦与温特沃斯女爵安娜贝拉之女—奥古斯塔·埃达·金（Augusta Ada King）。</p>
+<p>1833 年，艾达遇到了通用计算机之父，发明家和机械工程师查尔斯·巴贝奇（Charles Babbage），他提出了差分机与分析机的设计概念，虽然是机械式计算机、但其设计具有现代计算机的所有基本要素，分析机被认为是早期计算机的雏形，巴贝奇因此被视为计算机先驱。</p>
+<p>1842 年艾达为这部机器编写了 <strong>算法</strong>，1843年在英国科学期刊上发表。后人视之为第一套算法、最早的计算机程序。她在论文中介绍了如何为巴贝奇分析机创建代码，用来处理字母、符号和数字。她还为这部机器创建了一种重复一系列指令的方法，这个过程就是现在程序设计中不可或缺的 <strong>循环</strong>。</p>
+<p>艾达建立了 <strong>循环（Loop）</strong> 和 <strong>子程序（Subprogram，Subroutine）</strong> 概念，为计算程序拟定 <strong>算法</strong>，写出了人类历史上第一份“程序设计流程图”。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 这里的 <strong>子程序</strong>，就是在前面提到过的 <strong>封装</strong> 思想在 <strong>软件</strong>（或者说 <strong>程序设计</strong>） 中的体现。</p>
+</blockquote>
+<p>然而巴贝奇与艾达的思想太过超前，在那个时代未能成功制造出分析机。</p>
+<p>而直到 20 世纪 30 年代，计算机科学之父，数学家、密码学家和理论生物学家艾伦·图灵（Alan Mathison Turing）和他的老师阿隆佐·邱奇（Alonzo Church）才分别提出了 <strong>等价于算法的计算模型</strong>：<strong>图灵机（Turing Machine）</strong> 与 <strong>$\lambda$ 演算</strong>。邱奇以及数学家斯蒂芬·科尔·克莱尼（Stephen Cole Kleene）和逻辑学家 J. Barkley Rosser 还一起定义了一类函数， 这种函数的值可使用 <strong>递归</strong> 方法计算。这三个理论被实践“证明”是等价的，这就是著名的邱奇-图灵论题。而 <strong>递归</strong> 直到现在仍然是程序设计的一个重要思想与方法。</p>
+<p>时至今日，图灵机还是计算理论研究的中心课题。图灵证明了图灵机的 <strong>停机问题（The Halting Problem）</strong> 无法判定，对“是否所有问题都是可计算的”这一问题做出了否定的回答，说明了现代计算机并不是无所不能的，存在 <strong>不可计算</strong> 的问题，这给出了计算的局限性。现代的高级编程语言，如 C 语言、Java 语言、 Python 语言等，都是图灵完备的——都能够模拟图灵机，它们的计算能力相同。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 图灵机的停机问题指是否存在一个通用方法能够判断这样一类问题：给某一台图灵机某一个输入，它是否会 <strong>停止运行</strong>，也就是 <strong>对这个输入给出一个结果</strong>。这里的通用方法，指的就是在上文中说的可以完全 <strong>解决（Slove）</strong> 一类问题的 <strong>算法（Algorithm）</strong>。可以解决一类问题的算法（Algorithm）除了上文提到的 <strong>正确性</strong>，另一个重要的特点就是 <strong>有穷性</strong>，即这里说的 <strong>停机</strong>——算法对任意输入能够终止。不停机，就是 <strong>没有得到结果</strong>，得不到结果则结果的正确性更无从谈起，所以说对停机问题不可判定的证明指明了存在 <strong>不可计算</strong> 的问题，指出了计算机的能力是有限的。</p>
+</blockquote>
+<p>早期的计算机使用 <strong>硬件编程</strong>。目前世界公认的第一台通用电子计算机，是 1946 年美国为二战弹道计算制造的 <strong>ENIAC</strong>——电子数字积分计算机（Electronic Numerical Integrator And Computer）。在 ENIAC 上进行编程需要直接与硬件打交道，手动切换凌乱不堪的线缆和重置各种开关，这项工作需要分析微分方程，然后确定如何将电线连接到正确的电路。ENIAC 的六位程序员（ENIAC Girls）同样提出了子程序、<strong>嵌套子程序</strong> 和 <strong>程序模块化</strong> 的重要思想。</p>
+<p>到了 1945 年，现代计算机之父，数学家、物理学家和经济学家约翰·冯·诺依曼（John von Neumann）作为制造 <strong>EDVAC</strong>——离散变量自动电子计算机（Electronic Discrete Variable Automatic Computer）的技术顾问，在他的论文：First Draft of a Report on the EDVAC 中提出了 <strong>存储程序</strong> 式计算机，即冯诺依曼结构。存储程序的思想实现了软件与硬件的分离，程序员开始使用 <strong>软件编程</strong>。直到现在，冯诺依曼结构仍然是现代计算机通用的结构，一些其他的结构如哈佛结构，也是在冯诺依曼结构的基础上改进而来的。</p>
+<table><tr>
+  <td>
+    <img src="/img/beginner/Ada.jfif" width = "400" height = "400" alt="Ada 的肖像" align=center />
+    <p></p>
+    <span>艾达的肖像</span>
+  </td>
+  <td>
+    <img src="/img/beginner/Alan_Turing.jpg" width = "420" height = "420" alt="16 岁的 Turing" align=center />
+    <p></p>
+    <span>16 岁的图灵</span>
+  </td>
+  <td>
+    <img src="/img/beginner/VonNeumann.gif" width = "440" height = "440" alt="20 世纪 40 年代的 vonNeumann" align=center />
+    <p></p>
+    <span>20 世纪 40 年代的冯诺依曼</span>
+  </td>
+</tr></table>
+<p>当然，还有更多做出重要贡献的科学家与工程师在这里没有被提及，比如雅卡尔、帕斯卡、莱布尼茨、布尔。如果你感兴趣，可以自行了解更详细的计算机发展史。</p>
+<h3 id="从低级语言到高级语言">从低级语言到高级语言</h3>
+<p>早期程序员直接使用机器语言来编程，只由 0 和 1 组成的机器语言虽然可以在计算机上直接执行，但是对人类却极不友好，01 码也难以记忆。为了方便程序员进行编程，汇编语言（Assembly Language）出现了，可以简单地认为汇编语言就是将 01 码组成的机器语言翻译成了类似于英语的简单形式，便于程序员记忆指令。</p>
+<img src="/img/beginner/Assembly_machine.png" width = "450" height = "450" alt="汇编语言与机器语言对照表" align=center />
+<p>汇编语言与机器语言是 <strong>一一对应</strong> 的，因此依赖于硬件，程序的 <strong>移植</strong> 非常不方便，在不同的系统上要重新编写代码，并且依赖于程序员对不同硬件的指令系统的了解。但也正因如此，汇编语言代码可以容易地转换到机器语言代码。</p>
+<p>机器语言与汇编语言都是以计算机的“思考方式”来设计的，被统称为 <strong>低级语言</strong>。</p>
+<p>那能不能以更“高级”，更接近人类思考方式而不是计算机的“思考方式”来编程呢？这就是现在程序员使用的 <strong>高级语言</strong>，比如上面提到的 C 语言、Python 语言，还有早期的 Pascal 语言，等等，它们与汇编语言相比，和机器语言并不是一一对应的，一行高级语言代码可能对应多条机器语言代码，因此可以实现程序的 <strong>移植</strong>，程序员不需要了解硬件的指令系统，软件与硬件彻底分离了。并且高级语言对人类更加友好，高级语言的代码接近于高层次（High-level，不涉及底层细节）的算法描述，与人类熟悉的自然语言更加相近。</p>
+<img src="/img/beginner/programming_code.jfif" width = "450" height = "450" alt="高级语言" align=center />
+<p>高级语言有如此多的优点，可是它不能直接在计算机上运行，这个最大的问题要如何解决呢？于是 <strong>编译器（Compiler）</strong> 诞生了，它是一个程序，可以将特定的高级语言转换为汇编语言，再到机器语言。编译器是 <strong>平台依赖</strong>（包括硬件以及后来出现的系统软件——操作系统） 的，而高级语言的语法与 <strong>平台无关</strong>。只要你在计算机上安装了编译器，就可以将其他平台上编写的高级语言代码移植过来，使用编译器编译成机器代码后在你的计算机上运行。这不仅解决了高级语言编写的程序不能在计算机上运行的问题，并且大大减少了程序员的工作量。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 还有另一种将高级语言代码转换成机器代码的程序，叫做 <em>解释器（Interpreter）</em>。就像 compile 和 interpret 之间的区别那样，编译器会一次性将高级语言的源代码翻译成机器指令序列，即从高级语言源代码文本文件到计算机 <strong>可执行</strong> 的 <strong>二进制文件</strong>，一次编译后可以多次运行（生成的可执行文件）。在 Windows 操作系统上可执行文件的扩展名通常为 <code>.exe</code>，Mac 操作系统使用 <code>.dmg</code> 以及 <code>.app</code> 作为可执行文件的扩展名，而 Linux 操作系统没有标准的文件扩展名；而解释器不会生成可执行二进制文件，是每一次“运行源代码”时从头开始对编程语言源代码逐行进行翻译，翻译成机器指令后让计算机执行。简单来讲，使用编译方式的编程语言的编译器（程序）运行在代码 <strong>运行前</strong> 或者说 <strong>编译时</strong>，而使用解释方式的编程语言的解释器（程序）运行在代码 <strong>运行时</strong>。举一个形象的例子，编译器做的工作就是翻译一本书，全部翻译工作完成后才能出版，而翻译完成后其他人可以在任意时间去阅读这本书中的内容；而解释器做的工作更像口译员，双方交流时逐句翻译，<del>除非有人录音或者记录下来，否则</del>在翻译结束后不可能再去知道翻译的内容，即使两个人要重复一遍一模一样的对话，也必须重新找来口译员重新开始翻译。使用解释器的高级语言可以进行交互式编程——输入一行代码可以立即执行，比如 Python 语言，还有操作系统的命令行。但是通常使用编译器的高级语言执行速度较快。</p>
+</blockquote>
+<p>世界上第一个编译器的发明者是美国海军准将、计算机科学家和程序员格蕾丝·穆雷·霍普（Grace Murray Hopper），本名格蕾丝·布鲁斯特·穆雷（Grace Brewster Murray）。</p>
+<table><tr>
+  <td>
+    <img src="/img/beginner/Grace_Hopper_UNIVAC.jpg" width = "570" height = "570" alt="Grace with UNIVAC" align=center />
+    <p></p>
+    <span>1960 年在 UNIVAC 键盘前的格蕾丝</span>
+  </td>
+  <td>
+    <img src="/img/beginner/Commodore_Grace_Hopper.jpg" width = "400" height = "400" alt="1984 年的 Grace" align=center />
+    <p></p>
+    <span>1984 年的格蕾丝</span>
+  </td>
+</tr></table>
+<p>1949年，格蕾丝进入埃克特-莫奇莱计算机公司，担任资深数学家，开发一台商用电子计算机 UNIVAC I，她认为可以在 UNIVAC I 上面开发程序，使程序员可以用 <strong>接近英文写作</strong> 的方式來编写程序。她提出开发 <strong>高级编程语言</strong> 的想法，自行着手研究。1951 年到 1952 年间，格蕾丝在 UNIVAC I 上开发出 <strong>第一套编译器 A-0 系統</strong>，能将 <strong>高级语言源代码</strong> 编译为 <strong>机器代码</strong>。</p>
+<blockquote>
+<p>💡 <strong>NOTE</strong>: 1947 年 9 月 9 日，格蕾丝在哈佛二号计算机中內发现了一只 <strong>虫子（Bug）</strong>。当时哈佛二号总是出錯，大家仔细检查程序仍然找不出错误，最后才发现原来是这只飞蛾意外飞入计算机內部的继电器而造成短路。他们把虫子移除后计算机终于正常运行，并在日记本中记录下了这一事件，她在日记中使用了 &ldquo;Debug&rdquo; 这个单词。从此，<strong>Debug</strong>（“除虫”） 正式成为排除程序错误的专业术语，而 <strong>Bug</strong> 被用于指代程序中的错误（Error）。</p>
+<img src="/img/beginner/1st_Bug.jpg" width = "300" height = "300" alt="第一个“Bug”日记" align=center />
+</blockquote>
+<p>特定编程语言对应的编译器只是一个分析其编程语言语法的 <strong>程序</strong>，译器报告错误（<strong>Error</strong>）当且仅当源代码文件不符合编程语言的语法，这样的程序无法理解语言的语义，所以有时你会发现编译通过而调试结果与预期不符或者出现 <strong>异常（Exception）</strong>，因为你可能打错、漏了什么字符，常见的一种问题是把判断等于号 <code>==</code> 打成了赋值号 <code>=</code>，而现代编译器对于一些可能出现异常。相对地，在自然语言中你可能使用一些不符合语言语法的表述（<del>比如倒装句</del>），然而对方仍然能够理解你的意思。</p>
+<p>所以当你发现编译器报错，或者程序调试出现 Bug 的时候，一定是你错了，或者你使用的由第三方开发者开发的软件包（Software Package）本身就有 Bug，而不是编译器或计算机（除非你是一个<del>可以反向警告编译器</del>的编程高手，编译器也是程序员写出来的程序，可能存在问题，但这些工具都是由众多编程高手编写与改进，经过时间检验的），请老老实实查阅相关资料，找到问题所在吧！</p>
+<p>实践是学习计算机的最佳途径，如果你想对计算机科学有更深入的了解，动手开始学习编程是最好的方法。在学习编程的过程中，请始终记住一句话——<strong>熟能生巧</strong>。尽管也需要思考，但是 <strong>大量的练习</strong> 绝对是成为一个编程高手的 <strong>必要条件</strong>！</p>
+<p><strong>语言</strong> 可以被用来描述问题，也可以被用来（尝试）解决问题。描述问题与（通过 <strong>计算</strong>）解决问题，这就是计算机科学关注的内容。</p>
 
     </div>
 
