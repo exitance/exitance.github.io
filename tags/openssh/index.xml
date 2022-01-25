@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenSSH on Lambert&#39;s blog</title>
+    <link>http://localhost:1313/tags/openssh/</link>
+    <description>Recent content in OpenSSH on Lambert&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 23 Jan 2022 12:03:19 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/openssh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenSHH 的安装与使用</title>
+      <link>http://localhost:1313/post/openssh/</link>
+      <pubDate>Sun, 23 Jan 2022 12:03:19 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/openssh/</guid>
+      <description>SSH(Secure Shell Protocol) 一种加密的网络传输协议，可在不安全的网络中为网络服务提供安全的传输环境。它通过在网络中建立安全隧道来实现 SSH 客户端与服务器之间的连接，最</description>
+    </item>
+    
+  </channel>
+</rss>
