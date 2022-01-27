@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>OpenGL 环境搭建与使用 - Lambert&#39;s blog</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Lambert" /><meta name="description" content="OpenGL (Open Graphics Library) A cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics. The API is typically used to interact with a graphics processing unit (GPU), to achieve hardware-accelerated rendering. &amp;ldquo;However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.&amp;rdquo; &amp;ndash; from learnopengl.com 学习 OpenGL 最好的教程： LearnOpenGL LearnOpenGL-CN OpenGL 环" /><meta name="keywords" content="Graphics, DeepLearning, Math" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/opengl/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b874a8796a492f0d7c86bb24c33cbf052935783a5778ebaf819a8e514bf49f10.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="OpenGL 环境搭建与使用" />
+<meta property="og:description" content="OpenGL (Open Graphics Library) A cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics. The API is typically used to interact with a graphics processing unit (GPU), to achieve hardware-accelerated rendering. &ldquo;However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.&rdquo; &ndash; from learnopengl.com 学习 OpenGL 最好的教程： LearnOpenGL LearnOpenGL-CN OpenGL 环" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/opengl/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-23T18:53:52+08:00" />
+<meta property="article:modified_time" content="2022-01-23T18:53:52+08:00" />
+
+<meta itemprop="name" content="OpenGL 环境搭建与使用">
+<meta itemprop="description" content="OpenGL (Open Graphics Library) A cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics. The API is typically used to interact with a graphics processing unit (GPU), to achieve hardware-accelerated rendering. &ldquo;However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.&rdquo; &ndash; from learnopengl.com 学习 OpenGL 最好的教程： LearnOpenGL LearnOpenGL-CN OpenGL 环"><meta itemprop="datePublished" content="2022-01-23T18:53:52+08:00" />
+<meta itemprop="dateModified" content="2022-01-23T18:53:52+08:00" />
+<meta itemprop="wordCount" content="3126">
+<meta itemprop="keywords" content="OpenGL," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OpenGL 环境搭建与使用"/>
+<meta name="twitter:description" content="OpenGL (Open Graphics Library) A cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics. The API is typically used to interact with a graphics processing unit (GPU), to achieve hardware-accelerated rendering. &ldquo;However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.&rdquo; &ndash; from learnopengl.com 学习 OpenGL 最好的教程： LearnOpenGL LearnOpenGL-CN OpenGL 环"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Lambert</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Lambert</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">OpenGL 环境搭建与使用</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-01-23 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"> 图形学 </a>
+            </div>
+          <span class="more-meta"> 3126 words </span>
+          <span class="more-meta"> 7 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#opengl-环境搭建">OpenGL 环境搭建</a>
+          <ul>
+            <li><a href="#windows-操作系统搭建-vs-codevisual-studio--opengl-环境">Windows 操作系统搭建 VS Code/Visual Studio + OpenGL 环境</a></li>
+            <li><a href="#ubuntu-操作系统">Ubuntu 操作系统</a></li>
+          </ul>
+        </li>
+        <li><a href="#opengl-使用">OpenGL 使用</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>OpenGL (Open Graphics Library)</p>
+</blockquote>
+<p>A cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics. The API is typically used to interact with a graphics processing unit (GPU), to achieve hardware-accelerated rendering.</p>
+<p>&ldquo;However, OpenGL by itself is not an API, but merely a <strong>specification</strong>, developed and maintained by the Khronos Group.&rdquo; &ndash; from <code>learnopengl.com</code></p>
+<p>学习 OpenGL 最好的教程：
+<a href="https://learnopengl.com/">LearnOpenGL</a>
+<a href="https://learnopengl-cn.github.io">LearnOpenGL-CN</a></p>
+<h2 id="opengl-环境搭建">OpenGL 环境搭建</h2>
+<h3 id="windows-操作系统搭建-vs-codevisual-studio--opengl-环境">Windows 操作系统搭建 VS Code/Visual Studio + OpenGL 环境</h3>
+<ul>
+<li>操作系统：Windows 10</li>
+<li>系统架构：x64-based PC</li>
+<li>工程文件生成工具：CMake</li>
+<li>OpenGL 应用框架：GLFW</li>
+<li>访问 OpenGL 规范接口的第三方库：GLAD</li>
+<li>[Option 1]
+<ul>
+<li>编译器：MinGW-W64</li>
+<li>编辑器：Visual Studio Code</li>
+</ul>
+</li>
+<li>[Option 2]
+<ul>
+<li>编译器：MSVC</li>
+<li>集成开发环境：Visual Studio 2022</li>
+</ul>
+</li>
+</ul>
+<p>💡 <strong>NOTE</strong>:</p>
+<p>需要提前安装好 CMake，另外：</p>
+<ul>
+<li>选择 [Option 1] 需要提前安装好 MinGW-W64 和 VS Code</li>
+<li>选择 [Option 2] 需要提前安装好 Visual Studio</li>
+</ul>
+<p>安装 MinGW-w64 与 CMake 可以参考上一篇博客 <a href="/post/cmake">CMake 的安装与使用</a></p>
+<h4 id="构建-glfw">构建 GLFW</h4>
+<blockquote>
+<p>GLFW 提供创建 OpenGL Context 和用于显示的窗口、鼠标键盘等操作等接口，否则你需要自己写大量操作系统相关的代码来完成这些工作，因为在不同操作系统上这些操作不同，OpenGL 将它们抽象出去。</p>
+</blockquote>
+<p>访问 <a href="https://github.com/glfw/glfw/releases">GLFW GitHub Releases 页面</a>，选择最新版本 <strong>源代码</strong> 压缩包 <code>Source code (zip)</code> 下载，或者 <a href="https://www.glfw.org/download.html">GLFW 官方下载页面</a> 点击 <code>Source package</code> 直接下载最新版本 <strong>源代码</strong> 压缩包 <code>glfw-&lt;latest-version&gt;.zip</code>。</p>
+<p>💡 <strong>NOTE</strong>: 从源代码编译库可以保证生成的库是兼容你的操作系统和 CPU 的，而预编译的二进制文件可能会出现兼容问题（甚至有时候没提供支持你系统的文件）。</p>
+<p>下载源码包之后，将其解压并打开。我们只需要里面的这些内容：</p>
+<ul>
+<li>编译生成的库</li>
+<li>include 文件夹</li>
+</ul>
+<ol start="0">
+<li>创建一个单独的文件夹，里面包含 Libs 和 Include 文件夹，在这里要存放 OpenGL 工程用到的所有第三方库和头文件。</li>
+</ol>
+<h5 id="option-1-mingw-w64--vs-code-解决方案">[Option 1] MinGW-W64 + VS Code 解决方案</h5>
+<ol>
+<li>
+<p>在解压后的源代码目录新建一个 build 目录，打开 CMake-GUI：</p>
+<ul>
+<li>Where is the source code: 选择解压后的源代码目录</li>
+<li>Where to build the bianries: 选择刚刚创建的 build 目录</li>
+</ul>
+<p>然后点击 <code>Configure</code> 按钮，让 CMake 读取设置和源代码</p>
+</li>
+<li>
+<p>然后选择工程生成器：Generator 选择 <code>MinGW Makefile</code> 和 <code>Use default native compilers</code>，点击 <code>Finish</code> 开始 <strong>配置</strong></p>
+</li>
+<li>
+<p>配置完成后 CMake 会显示可选的编译选项用来配置最终生成的库，勾选 BUILD_SHARED_LIBS，创建动态库</p>
+</li>
+<li>
+<p>点击 <code>Generate</code> 等待文件 <strong>生成</strong></p>
+</li>
+<li>
+<p>打开 PowerShell 进入刚才创建的 build 目录，执行 <code>make</code> 命令等待 <strong>编译</strong> 完成</p>
+</li>
+</ol>
+<p>⚠️️ <strong>NOTICE</strong>：将 <strong>build/src</strong> 目录中的 <strong>glfw3.dll</strong>、<strong>libglfw3dll.a</strong> 添加到你的第三方库文件目录中，并将 <strong>include/GLFW</strong> 目录添加到你的第三方包含目录中</p>
+<h5 id="option-2-msvc--visual-studio-解决方案">[Option 2] MSVC + Visual Studio 解决方案</h5>
+<ol>
+<li>
+<p>在解压后的源代码目录新建一个 build 目录，打开 CMake-GUI：</p>
+<ul>
+<li>Where is the source code: 选择解压后的源代码目录</li>
+<li>Where to build the bianries: 选择刚刚创建的 build 目录</li>
+</ul>
+<p>然后点击 <code>Configure</code> 按钮，让 CMake 读取设置和源代码</p>
+</li>
+<li>
+<p>然后选择工程生成器：Generator 选择你的 <code>Visual Studio &lt;msvc-version&gt; &lt;visual-studio-version&gt;</code> 和 <code>Use default native compilers</code>，点击 <code>Finish</code> 开始 <strong>配置</strong></p>
+</li>
+<li>
+<p>CMake 会显示可选的编译选项用来配置最终生成的库，这里我使用默认设置</p>
+</li>
+<li>
+<p>再次点击 <code>Configure</code> 按钮保存设置，然后点击 <code>Generate</code> 按钮，<strong>生成</strong> 的工程文件会在你的 build 文件夹中</p>
+</li>
+<li>
+<p>点击 <code>Open Project</code> 或者进入到刚才创建的 build 目录中，找到 <code>GLFW.sln</code> 文件打开，点击 <code>生成解决方案（Build Solution）</code> 开始 <strong>编译</strong></p>
+</li>
+</ol>
+<p>编译的库 <strong>glfw3.lib</strong> 会出现在 <strong>build/src/Debug</strong> 目录内。</p>
+<p>库生成完毕之后，我们需要让 IDE 知道库和头文件的位置。有两种方法：</p>
+<ul>
+<li>找到 IDE 或者编译器的 /lib 和 /include 文件夹，添加 GLFW 的 include 文件夹里的文件到 IDE 的 /include 文件夹里去。用类似的方法，将 glfw3.lib 添加到 /lib 文件夹里去。虽然这样能工作，但这不是推荐的方式，因为这样会让你很难去管理库和 include 文件，而且重新安装 IDE 或编译器可能会导致这些文件丢失。</li>
+<li>推荐的方式是建立一个新的目录包含所有的第三方库文件和头文件，并且在你的 IDE 或编译器中指定这些文件夹。我个人会使用一个单独的文件夹，里面包含 Libs 和 Include 文件夹，在这里存放 OpenGL 工程用到的所有第三方库和头文件。这样我的所有第三方库都在同一个位置（并且可以共享至多台电脑）。然而这要求你每次新建一个工程时都需要告诉 IDE / 编译器在哪能找到这些目录。</li>
+</ul>
+<h4 id="配置-glad">配置 GLAD</h4>
+<p>GLAD 是一个开源库：<a href="https://github.com/Dav1dde/glad">GitHub 项目地址</a></p>
+<blockquote>
+<p>WHY GLAD?</p>
+</blockquote>
+<p>因为 OpenGL 只是一个标准/规范，具体的实现是由驱动开发商针对特定显卡实现的。由于 OpenGL 驱动版本众多，它大多数函数的位置都无法在编译时确定下来，需要在 <strong>运行时</strong> 查询。所以任务就落在了开发者身上，开发者需要在运行时获取函数地址并将其保存在一个函数指针中供以后使用。取得地址的方法因平台而异。</p>
+<p>GLAD 能解决这个繁琐的问题，下面是配置 GLAD 的步骤：</p>
+<ol>
+<li>
+<p>访问 <a href="https://glad.dav1d.de/">GLAD在线服务</a>，在这里我们能够告诉 GLAD 需要定义的 OpenGL 版本，并且根据这个版本加载所有相关的 OpenGL 函数，参考配置如下：</p>
+<ul>
+<li>Language: C/C++</li>
+<li>Specification: OpenGL</li>
+<li>API:
+<ul>
+<li>gl: 版本建议选择 3.3 以上</li>
+</ul>
+</li>
+<li>Profile: Core（ 如果选择 Compatibility 将兼容 OpenGL 旧标准，文件也更大）</li>
+<li>Extensions: 可以暂时忽略</li>
+<li>Options: 选中 Generate a loader</li>
+</ul>
+<p>然后点击 <code>GENERATE</code> 按钮生成文件。</p>
+</li>
+<li>
+<p>GLAD 现在提供了一个 zip 压缩文件，解压后文件夹包含一个 include 目录（其中有两个头文件目录）以及一个 src 目录（其中是一个 glad.c 文件）。将两个头文件目录 <strong>glad</strong> 和 <strong>KHR</strong> 复制到你的第三方包含文件夹中
+😶 如果你使用 <strong>[Option 2] MSVC + Visual Studio</strong> 搭建环境，<strong>跳过</strong> 下面的步骤</p>
+</li>
+<li>
+<p>在 glad 目录下将 src 文件夹中的 glad.c 编译为静态库：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="n">gcc</span> <span class="p">.\</span><span class="n">src</span><span class="p">\</span><span class="n">glad</span><span class="p">.</span><span class="n">c</span> <span class="n">-c</span> <span class="n">-I</span> <span class="p">.\</span><span class="n">include</span><span class="p">\</span>
+<span class="n">ar</span> <span class="n">-rc</span> <span class="n">libglad</span><span class="p">.</span><span class="n">a</span> <span class="n">glad</span><span class="p">.</span><span class="n">o</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>得到 glad.o 和 libglad.a 文件，下面的测试工程需要 <strong>libglad.a</strong>，将它复制到你的第三方库文件目录中</p>
+</li>
+</ol>
+<h4 id="测试工程">测试工程</h4>
+<h5 id="option-1-mingw-w64--vs-code-测试工程">[Option 1] MinGW-W64 + VS Code 测试工程</h5>
+<ol>
+<li>
+<p>新建一个工程目录，在此目录下打开 VS Code，安装 C/C++ Project Generator 插件，<code>Ctrl + Shift + P</code> 搜索 <code>Create C++ Project</code> 创建一个 C++ 工程</p>
+</li>
+<li>
+<p><code>Ctrl + Shift + P</code> 搜索 <code>C/C++: Edit Configurations</code>，修改配置（c_cpp_properties.json）：</p>
+<ul>
+<li>编译器路径（compilerPath）：<code>&lt;path-to-your-mingw-w64&gt;/bin/g++.exe</code></li>
+<li>intelliSense 模式（intalliSenseMode）：linux-gcc-x64</li>
+<li>修改 c_cpp_properties.json 中的包含路径（includePath）：添加 <code>&lt;path-to-your-3rd-party-include-directory&gt;</code></li>
+</ul>
+<p>🦘 详细的的配置可以参考我的 GitHub 仓库中 <a href="https://github.com/exitance/OpenGL-Demo/Test_VSC/.vscode">OpenGL-Demo/Test_VSC/.vscode</a> 目录中的内容</p>
+</li>
+<li>
+<p>按 Test 目录中的配置修改 Makefile 文件，添加你的第三方包含目录和库目录路径至 INCLUDE 和 LIB，并修改 LIBS 添加链接静态库选项 <code>-lglad</code> 和 <code>-lglfw3dll</code>，分别对应于上面生成的静态库文件 libglad.a 和 libglfw3dll.a，Makefile 中链接库文件需要“掐头去尾”——去掉开头的 lib 和尾部的扩展名 .a
+🐧 详细的的配置可以参考我的 GitHub 仓库中 <a href="https://github.com/exitance/OpenGL-Demo/Test_VSC/Makefile">OpenGL-Demo/Test_VSC/Makefile</a> 文件中的内容</p>
+</li>
+<li>
+<p>把 glfw3.dll 复制到此工程的根目录中</p>
+</li>
+<li>
+<p>修改源文件 main.cpp，添加你的 OpenGL 渲染代码
+🐻 测试代码可以参考我的 GitHub 仓库中 <a href="https://github.com/exitance/OpenGL-Demo/Test_VSC/src/main.cpp">OpenGL-Demo/Test_VSC/src/main.cpp</a> 文件中的内容</p>
+</li>
+<li>
+<p>在 VS Code 中工程目录路径下打开 PowerShell，输入 <code>make run</code> 可以看到运行结果</p>
+</li>
+</ol>
+<h5 id="option-2-msvc--visual-studio-测试工程">[Option 2] MSVC + Visual Studio 测试工程</h5>
+<ol>
+<li>打开 Visual Studio，创建一个新的项目 Test，选择：
+<ul>
+<li>语言： C++</li>
+<li>项目模板：空项目（Empty Project）</li>
+</ul>
+</li>
+<li>在解决方案（Solution Explorer）窗口里点击工程名 <strong><code>Test</code></strong>，右键选择 <code>属性（Properties）</code>，在弹出的窗口选择 <code>配置属性（Configuration Properties）</code> 选项卡</li>
+<li>选择 <code>VC++ 目录（VC++ Directories）</code> 选项卡，在 <code>常规（General）</code> 中的 <code>包含目录（Include Directories）</code> 和 <code>库目录（Library Directories）</code> 字段中加入你的第三方包含目录和库目录路径 💡 <strong>NOTE</strong>: 记得在每个路径末尾带上 <code>;</code></li>
+<li>选择 <code>链接器（Linker）</code> 选项卡里的 <code>输入（Input）</code> 选项卡，在 <code>附加依赖项</code> 字段中最后一个字符串 <code>%(AdditionalDependencies)</code> 的前面添加字符串 <code>glfw3.lib;</code></li>
+<li>注意 <code>Configuration</code> 要选择 <code>所有配置（All Configurations）</code>，<code>Platform</code> 要和你主菜单选择的 <code>Solution Platform</code> 保持一致，然后点击 <code>确定（confirm）</code> 保存更新</li>
+<li>将 glad.c 复制到你的工程目录下，解决方案中选择 <code>源文件（Source Files）</code> 右键选择 <code>Add</code> -&gt; <code>Existing Item</code> 选择 glad.c 添加到工程中</li>
+<li>解决方案中选择 <code>源文件（Source Files）</code> 右键选择 <code>Add</code> -&gt; <code>New Item</code> 添加文件 main.cpp，添加你的 OpenGL 渲染代码
+🐼 测试代码可以参考我的 GitHub 仓库中 <a href="https://github.com/exitance/OpenGL-Demo/Test_VS/Test_VS/main.cpp">OpenGL-Demo/Test_VS/Test_VS/main.cpp</a> 文件中的内容</li>
+<li>现在可以在 Visual Studio 中调试运行了</li>
+</ol>
+<blockquote>
+<p>可能遇到的问题：cpp 源文件包含 <code>GLFW/glfw3.h</code> 头文件时提示找不到 <code>stddef.h</code> 和 <code>GL/gl.h</code> 等头文件</p>
+<blockquote>
+<p>可能是 SDK 版本的问题。
+<strong>Slove</strong>：
+打开 Visual Studio Installer，选择你使用的 Visual Studio 版本，点击 <code>修改</code> -&gt; <code>单个组件</code>，找到 <code>Visual Studio SDK</code> 和相应的 <code>Windows &lt;windows-version&gt; SDK &lt;kernel-version&gt;</code> 安装</p>
+</blockquote>
+</blockquote>
+<h3 id="ubuntu-操作系统">Ubuntu 操作系统</h3>
+<h2 id="opengl-使用">OpenGL 使用</h2>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Lambert</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-01-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<div class="post-reward">
+  <input type="checkbox" name="reward" id="reward" hidden />
+  <label class="reward-button" for="reward">Reward</label>
+  <div class="qr-code">
+    
+    
+    
+    <label class="qr-code-image" for="reward">
+        <img class="image" src="/img/reward/qr.png">
+        <span>qr</span>
+      </label>
+  </div>
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/opengl/">OpenGL</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/cmake/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">CMake 的安装与使用</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/openssh/">
+            <span class="next-text nav-default">OpenSHH 的安装与使用</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="SOHUCS" sid="/post/opengl/"></div>
+    <script type="text/javascript">
+    (function(){
+      if (window.location.hostname === 'localhost') return;
+
+      var appid = 'cyvSccQUF';
+      var conf = 'ff93b945c116e808a50b71ec287cbec4';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      if (width < 960) {window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
+    })();
+    </script>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="exitance/exitance/exitance.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:LambLeobert@outlook.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://stackoverflow.com/users/14069302/lambert" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://github.com/exitance" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.zhihu.com/people/ku-luo-luo-he-lu-xi-lu" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://gitlab.com/exitance" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="https://space.bilibili.com/473051700?spm_id_from=333.1007.0.0" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Lambert</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

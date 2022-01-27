@@ -58,6 +58,27 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/tags/opengl/</loc>
+    <lastmod>2022-01-23T18:53:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/opengl/</loc>
+    <lastmod>2022-01-23T18:53:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
+    <lastmod>2022-01-23T18:53:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/openssh/</loc>
     <lastmod>2022-01-23T12:03:19+08:00</lastmod>
     <changefreq>weekly</changefreq>

@@ -17,6 +17,15 @@
     </item>
     
     <item>
+      <title>OpenGL 环境搭建与使用</title>
+      <link>http://localhost:1313/post/opengl/</link>
+      <pubDate>Sun, 23 Jan 2022 18:53:52 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/opengl/</guid>
+      <description>OpenGL (Open Graphics Library) A cross-language, cross-platform application programming interface (API) for rendering 2D and 3D vector graphics. The API is typically used to interact with a graphics processing unit (GPU), to achieve hardware-accelerated rendering. &amp;ldquo;However, OpenGL by itself is not an API, but merely a specification, developed and maintained by the Khronos Group.&amp;rdquo; &amp;ndash; from learnopengl.com 学习 OpenGL 最好的教程： LearnOpenGL LearnOpenGL-CN OpenGL 环</description>
+    </item>
+    
+    <item>
       <title>OpenSHH 的安装与使用</title>
       <link>http://localhost:1313/post/openssh/</link>
       <pubDate>Sun, 23 Jan 2022 12:03:19 +0800</pubDate>
